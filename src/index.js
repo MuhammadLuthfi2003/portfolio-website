@@ -1,8 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import CubeInterface from './components/cube';
 
-const element = '<h1>Hello, world!</h1>';
+import './styles/decorator.css'
+
+function Element() {
+    return <div>
+                <CubeInterface />
+           </div>;
+}
 
 
 const root = createRoot(document.getElementById('root'));
-root.render(element);
+root.render(<Element />);
