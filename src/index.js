@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
+    Router,
     Switch,
     Route,
     Link
@@ -9,20 +9,27 @@ import {
 import { createRoot } from 'react-dom/client';
 
 //styles
-import './styles/decorator.css'
+import './styles/main-decorator.css'
 
 //components
 import CubeInterface from './components/cube';
 import Navbar from './components/navbar';
 
 
-
 //index.js will be used for routing purposes
 
-function Element() {
-    return <div>
+class Element extends React.Component {
+
+    render() {
+        return (
+            <div>
                 <Navbar />
-           </div>;
+                <div className='content'>
+                    <CubeInterface />
+                </div>
+            </div>
+        )
+    }
 }
 
 

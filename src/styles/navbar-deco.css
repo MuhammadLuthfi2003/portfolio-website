@@ -12,6 +12,10 @@ body {
 }
 
 .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +24,7 @@ body {
 }
 
 .navbar-logo {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 1rem;
 }
 

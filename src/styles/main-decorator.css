@@ -7,8 +7,13 @@
     font-family: 'Karla', sans-serif;
 }
 
-canvas {
-    background: white;
-    width: 100vw;
-    
+.content {
+    background-image: url(../images/bg.jpg);
+    background-size: 100vw;
 }
+
+canvas {
+    background: rgba(0,0,0,0);
+    width: 100vw;   
+}
+
