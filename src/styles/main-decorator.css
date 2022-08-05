@@ -8,8 +8,14 @@
 }
 
 .content {
-    background-image: url(../images/bg-2.png);
-    background-size: 100vw;
+    /* background-image: url(../images/bg-2.png);
+    background-size: 100vw; */
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 canvas {
@@ -17,3 +23,14 @@ canvas {
     width: 100vw;   
 }
 
+#video-bg {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}

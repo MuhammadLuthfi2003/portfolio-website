@@ -14,6 +14,7 @@ import './styles/main-decorator.css'
 //components
 import CubeInterface from './components/cube';
 import Navbar from './components/navbar';
+import VideoBG from './components/video';
 
 
 //index.js will be used for routing purposes
@@ -24,7 +25,8 @@ class Element extends React.Component {
         return (
             <div>
                 <Navbar />
-                <div className='content'>
+                <VideoBG />
+                <div className='content'>                  
                     <CubeInterface />
                 </div>
             </div>
