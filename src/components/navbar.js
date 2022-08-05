@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+    Link
+  } from "react-router-dom";
+
 import '../styles/navbar-deco.css';
 
 class Navbar extends React.Component {
@@ -30,16 +34,16 @@ class Navbar extends React.Component {
                 <div className='navbar-links' >
                     <ul>
                         <li>
-                            <a href='!#'>Home</a>
+                            <Link to='/' className='navbar-links-dir'>Home</Link>
                         </li>
                         <li>
-                            <a href='!#'>About</a>
+                            <Link to='/about' className='navbar-links-dir'>About</Link>
                         </li>
                         <li>
-                            <a href='!#'>Projects</a>
+                            <Link to='/project' className='navbar-links-dir'>Projects</Link>
                         </li>
                         <li>
-                            <a href='!#'>Contact</a>
+                            <Link to='/contact' className='navbar-links-dir'>Contact</Link>
                         </li>
                     </ul>
                 </div>

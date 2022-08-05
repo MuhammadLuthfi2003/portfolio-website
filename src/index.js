@@ -1,9 +1,8 @@
 import React from 'react';
 import {
-    Router,
-    Switch,
-    Route,
-    Link
+    BrowserRouter as Router,
+    Routes as Switch,
+    Route
   } from "react-router-dom";
 
 import { createRoot } from 'react-dom/client';
@@ -12,28 +11,37 @@ import { createRoot } from 'react-dom/client';
 import './styles/main-decorator.css'
 
 //components
-import CubeInterface from './components/cube';
 import Navbar from './components/navbar';
-import VideoBG from './components/video';
 
+//dirs
+import Home from './dirs/home';
+import About from './dirs/about';
+import Projects from './dirs/projects';
+import Contact from './dirs/contact';
 
 //index.js will be used for routing purposes
 
-class Element extends React.Component {
+class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <Navbar />
-                <VideoBG />
-                <div className='content'>                  
-                    <CubeInterface />
+            <Router>
+                <div>
+                    <Navbar />
+                    <div>
+                        <Switch>
+                            <Route path='/' element={<Home />}></Route>
+                            <Route path='/about' element={<About />}></Route>
+                            <Route path='/projects' element={<Projects />}></Route>
+                            <Route path='/contact' element={<Contact />}></Route>
+                        </Switch>
+                    </div>
                 </div>
-            </div>
+            </Router>
+
         )
     }
 }
 
-
 const root = createRoot(document.getElementById('root'));
-root.render(<Element />);
+root.render(<App />);
