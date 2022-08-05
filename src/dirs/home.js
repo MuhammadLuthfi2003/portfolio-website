@@ -1,16 +1,16 @@
 import React from 'react';
 import '../styles/main-decorator.css';
 
-import CubeInterface from '../components/cube';
+import Interface from '../components/interface';
 import VideoBG from '../components/video';
 
 class Home extends React.Component {
     render() {
         return (
             <div>
-                <VideoBG />\
+                <VideoBG />
                 <div class='content'>
-                    <CubeInterface />
+                    <Interface />
                 </div>
             </div>
         )
