@@ -22,13 +22,34 @@
 
 .canvas {
     background: rgba(0,0,0,0);
-    width: 100vw;
+    width: 80vw;
+    height: 100vh;
 }
 
 .planets {
     position: fixed;
     display: flex;
     flex-direction: row;
+    align-items: center;
+}
+
+.planets > .arrowBtn {
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    background-color: rgba(235,233,238,0.5);
+    cursor: pointer;
+    border: none;
+}
+
+
+.arrowBtn-left, .arrowBtn-right {
+    font-size: 2rem;
+    color: rgb(26, 25, 25)
+}
+
+.planets > .arrowBtn:hover {
+    background-color: rgba(243, 240, 248, 0.8);
 }
 
 #video-bg {

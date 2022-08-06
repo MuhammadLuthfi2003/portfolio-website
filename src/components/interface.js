@@ -15,40 +15,49 @@ const textureArray = [jupiterTexture, earthTexture, marsTexture, neptuneTexture]
 function Planets({texture}) {
     const colorMap = useLoader(TextureLoader, texture);
         
-    return(         
-        <Canvas className='canvas'>
+    //TODO: Add Animations
 
-            <ambientLight intensity={0.5}/>
-            <directionalLight intensity={0.5} position={[-2,4,2]}/>
+    return(
+        <div className='canvas'>
+            <Canvas >
+                <ambientLight intensity={0.5}/>
+                <directionalLight intensity={0.5} position={[-2,4,2]}/>
 
-            <PresentationControls 
-            cursor={true}
-            speed={2}
-            polar={[-Infinity, Infinity]}
-            azimuth={[-Infinity, Infinity]}
-            >
-                <Sphere args={[2,32,32]} >
-                    <meshStandardMaterial map={colorMap} attach='material' />
-                </Sphere>
-            </PresentationControls>
+                <PresentationControls 
+                cursor={true}
+                speed={2}
+                polar={[-Infinity, Infinity]}
+                azimuth={[-Infinity, Infinity]}
+                >
+                    <Sphere args={[2,32,32]} >
+                        <meshStandardMaterial map={colorMap} attach='material' />
+                    </Sphere>
+                </PresentationControls>
 
-        </Canvas>
+            </Canvas>
+        </div>         
+
     );
 }
 
 
 class Interface extends React.Component{
+
+
     render(){
         return(
             
             <div className='planets'>
-                {
-                    textureArray.map((texture, index) => {
-                        return(
-                            <Planets texture={texture} key={index}/>
-                        )
-                    })
-                }    
+                <button className='arrowBtn'>
+                    <span className='arrowBtn-left'>&#5130;</span>
+                </button>
+                
+                <Planets texture={textureArray[0]}/>
+
+                <button className='arrowBtn'>
+                    <span className='arrowBtn-right'>&#5125;</span>
+                </button>
+                
             </div> 
         );
     }
