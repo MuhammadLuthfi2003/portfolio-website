@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
+    overflow-y: hidden;
 }
 
 .content {
@@ -18,9 +19,16 @@
     justify-content: center;
 }
 
-canvas {
+
+.canvas {
     background: rgba(0,0,0,0);
-    width: 100vw;   
+    width: 100vw;
+}
+
+.planets {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
 }
 
 #video-bg {
