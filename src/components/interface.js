@@ -63,6 +63,7 @@ function Name({text,subtext, textPositionOffset, subtextPositionOffset}) {
 
 function Planets({texture,text,subtext,link,textPositionOffset,subtextPositionOffset}) {
     const colorMap = useLoader(TextureLoader, texture);
+    const sizeFactor = 1; //used for resizing the objects inside canvas
 
     //TODO: Add Animations
 
@@ -78,7 +79,7 @@ function Planets({texture,text,subtext,link,textPositionOffset,subtextPositionOf
                     polar={[0,Math.PI / 2]}
                     azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
                     >
-                        <Text3D size={2.5} font={karla} position={[-5,0,0]}>
+                        <Text3D size={2.5 * sizeFactor} font={karla} position={[-5,0,0]}>
                             <mesh />
                             {text}
                             <meshBasicMaterial />
@@ -99,7 +100,7 @@ function Planets({texture,text,subtext,link,textPositionOffset,subtextPositionOf
                     polar={[-Infinity, Infinity]}
                     azimuth={[-Infinity, Infinity]}
                     >
-                        <Sphere args={[2.5,32,32]} >
+                        <Sphere args={[(2.5 * sizeFactor),32,32]} >
                             <meshStandardMaterial map={colorMap} attach='material' />
                         </Sphere>
                     </PresentationControls>
@@ -113,10 +114,10 @@ function Planets({texture,text,subtext,link,textPositionOffset,subtextPositionOf
 
                     <PresentationControls
                     cursor={true}
-                    polar={[0,Math.PI / 2]}
-                    azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
+                    polar={[-(Math.PI / 30), (Math.PI / 30)]}
+                    azimuth={[-(Math.PI / 50), (Math.PI / 50)]}
                     >
-                        <Text3D size={1.2} font={karla} position={subtextPositionOffset}>
+                        <Text3D size={1.2 * sizeFactor} font={karla} position={subtextPositionOffset}>
                             <mesh  />
                             {subtext}
                             <meshBasicMaterial />

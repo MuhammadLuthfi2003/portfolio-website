@@ -32,8 +32,6 @@
     height: 40vh;
 }
 
-
-
 .planets {
     /* position: fixed; */
     display: flex;
@@ -63,6 +61,10 @@
 
 .planets > .arrowBtn:hover {
     background-color: rgba(243, 240, 248, 0.8);
+}
+
+.canvas-container {
+    width: 20vw;
 }
 
 #video-bg {
