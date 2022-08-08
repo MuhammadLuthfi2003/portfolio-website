@@ -34,7 +34,8 @@ const planetsData = [
     {
         texture: marsTexture,
         text: 'Projects',
-        subtext: 'A Ccts',
+        subtext: 'A Collections of My Projects',
+        link: '/projects',
         isPlanet: true,
         textPositionOffset: [0,0,0],
     },
@@ -51,7 +52,9 @@ const planetsData = [
 function Name({text,subtext, textPositionOffset}) {
     return (
         <div className='canvas-container'>
-            
+            <div className='name-container'>
+
+            </div>
         </div>
     )
 }
@@ -68,7 +71,7 @@ function Planets({texture,text,link,textPositionOffset,factor}) {
     const colorMap = useLoader(TextureLoader, texture);
     const sizeFactor = factor;//used for resizing the objects inside canvas
 
-    //TODO: Add Animations
+    //TODO: Add click event to planets that redirects to a link
 
     return(
         <div className='canvas-container'>
@@ -116,13 +119,36 @@ function Planets({texture,text,link,textPositionOffset,factor}) {
 }
 
 
+function CompletedPlanet({factor,rightIndex,leftIndex,currentIndex}) {
+    return (
+    <div>
+        <div className='interface-container'>
+            <div className='planets-container'>
+                <div className='planets'>
+                    <button className='arrowBtn icon-left' onClick={leftIndex}>
+                        <span className='arrowBtn-left'>&#5130;</span>
+                    </button>
+                    
+                    <Planets {...planetsData[currentIndex]} factor={factor}/>
+
+                    <button className='arrowBtn icon-right' onClick={rightIndex}>
+                        <span className='arrowBtn-right'>&#5125;</span>
+                    </button>
+                </div>
+            </div>
+            <DescText {...planetsData[currentIndex]}/>
+        </div>
+    </div>
+    )
+}
+
 class Interface extends React.Component{
 
     constructor(props) {
         super(props);
 
         this.state = {
-            currentIndex: 0,
+            currentIndex: 1, // change this to 0 back again 
             factor: 1,
             width: window.innerWidth,
         };
@@ -177,22 +203,23 @@ class Interface extends React.Component{
 
     render(){
         return(
-            <div className='interface-container'>
-                <div className='planets-container'>
-                    <div className='planets'>
-                        <button className='arrowBtn icon-left' onClick={this.leftIndex}>
-                            <span className='arrowBtn-left'>&#5130;</span>
-                        </button>
-                        
-                        <Planets {...planetsData[1]} factor={this.state.factor}/>
-
-                        <button className='arrowBtn icon-right' onClick={this.rightIndex}>
-                            <span className='arrowBtn-right'>&#5125;</span>
-                        </button>
-                    </div>
-                </div>
-                <DescText {...planetsData[1]}/>
+            <div>
+                {
+                    //find the index that is the same with the current index
+                    planetsData.map((planet,index) => {
+                        if (index === this.state.currentIndex) {
+                            if (planet.isPlanet) {
+                                return <CompletedPlanet key={index} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={index}/>
+                            }
+                            else {
+                                return <Name key={index}/>
+                            }
+                            
+                        }
+                    })
+                }
             </div>
+
 
         );
     }
