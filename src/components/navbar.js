@@ -26,11 +26,11 @@ class Navbar extends React.Component {
         return (
             <nav className="navbar">
                 <div className='navbar-logo'>Muhammad Luthfi Azzahra Rammadhani</div>
-                <a href="!#" className='toggle-btn' onClick={this.activateNav}>
+                <button className='toggle-btn' onClick={this.activateNav}>
                     <span className='bar'></span>
                     <span className='bar'></span>
                     <span className='bar'></span>
-                </a>
+                </button>
                 <div className='navbar-links' >
                     <ul>
                         <li>

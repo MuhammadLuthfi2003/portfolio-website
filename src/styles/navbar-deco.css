@@ -60,6 +60,10 @@ body {
     justify-content: space-between;
     width: 30px;
     height: 21px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
 }
 
 .toggle-btn .bar {

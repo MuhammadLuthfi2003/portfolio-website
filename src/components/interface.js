@@ -174,19 +174,21 @@ class Interface extends React.Component{
     }
 
     setFactor() {
-        if (this.state.width > 1200) {
-            this.setState({factor: 1});
+        if (this.state.width < 576) {
+            this.setState({factor: 0.4});
+
+        } else if (this.state.width < 768) {
+            this.setState({factor: 0.6});
+
+        } else if (this.state.width < 992) {
+            this.setState({factor: 0.7});
 
         } else if (this.state.width < 1200) {
             this.setState({factor: 0.8});
 
-        } else if (this.state.width < 992) {
-            this.setState({factor: 0.6});
-
-        } else if (this.state.width < 768) {
-            this.setState({factor: 0.2});
-
-        } 
+        } else if (this.state.width > 1200) {
+            this.setState({factor: 1});
+        }
     }
 
     componentWillMount() {
