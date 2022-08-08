@@ -12,6 +12,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-three-fiber": "^6.0.13",
+    "styled-components": "^5.3.5",
     "three.js": "^0.77.1",
     "web-vitals": "^2.1.4"
   },

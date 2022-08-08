@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {Canvas, useLoader, useFrame} from 'react-three-fiber';
-import {Sphere, PresentationControls, Text3D, OrbitControls} from '@react-three/drei';
-import {TextureLoader} from 'three/src/loaders/TextureLoader'; 
+import {Sphere, PresentationControls, Text3D} from '@react-three/drei';
+import {TextureLoader} from 'three/src/loaders/TextureLoader';
 
 //import texture
 import jupiterTexture from '../images/jupiter-texture.png';
@@ -57,7 +57,11 @@ function Name({text,subtext, textPositionOffset}) {
 }
 
 function DescText({subtext}) {
-
+    return (
+        <div className='subtext-container'>
+            <marquee className='subtext'>{subtext}</marquee>
+        </div>
+    )
 }
 
 function Planets({texture,text,link,textPositionOffset,factor}) {
@@ -104,7 +108,8 @@ function Planets({texture,text,link,textPositionOffset,factor}) {
                         </Sphere>
                     </PresentationControls>
                 </Canvas>
-            </div>  
+            </div>
+            
         </div>       
 
     );
@@ -172,19 +177,23 @@ class Interface extends React.Component{
 
     render(){
         return(
-            
-            <div className='planets'>
-                <button className='arrowBtn icon-left' onClick={this.leftIndex}>
-                    <span className='arrowBtn-left'>&#5130;</span>
-                </button>
-                
-                <Planets {...planetsData[1]} factor={this.state.factor}/>
+            <div className='interface-container'>
+                <div className='planets-container'>
+                    <div className='planets'>
+                        <button className='arrowBtn icon-left' onClick={this.leftIndex}>
+                            <span className='arrowBtn-left'>&#5130;</span>
+                        </button>
+                        
+                        <Planets {...planetsData[1]} factor={this.state.factor}/>
 
-                <button className='arrowBtn icon-right' onClick={this.rightIndex}>
-                    <span className='arrowBtn-right'>&#5125;</span>
-                </button>
-                
-            </div> 
+                        <button className='arrowBtn icon-right' onClick={this.rightIndex}>
+                            <span className='arrowBtn-right'>&#5125;</span>
+                        </button>
+                    </div>
+                </div>
+                <DescText {...planetsData[1]}/>
+            </div>
+
         );
     }
 }
