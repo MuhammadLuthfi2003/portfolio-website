@@ -22,7 +22,6 @@ const planetsData = [
         link: '/',
         isPlanet: false,
         textPositionOffset: [0,0,0],
-        subtextPositionOffset: [0,0,0]
     },
     {
         texture: jupiterTexture,
@@ -31,16 +30,13 @@ const planetsData = [
         link: '/about',
         isPlanet: true,
         textPositionOffset: [-2,4,2],
-        subtextPositionOffset: [-6.6,0,0],
     },
     {
         texture: marsTexture,
         text: 'Projects',
-        subtext: 'A Collection Of Projects I Made!',
-        link: '/projects',
+        subtext: 'A Ccts',
         isPlanet: true,
         textPositionOffset: [0,0,0],
-        subtextPositionOffset: [0,0,0]
     },
     {
         texture: neptuneTexture,
@@ -49,11 +45,10 @@ const planetsData = [
         link: '/contact',
         isPlanet: true,
         textPositionOffset: [0,0,0],
-        subtextPositionOffset: [0,0,0]
     }
 ]
 
-function Name({text,subtext, textPositionOffset, subtextPositionOffset}) {
+function Name({text,subtext, textPositionOffset}) {
     return (
         <div className='canvas-container'>
             
@@ -61,9 +56,13 @@ function Name({text,subtext, textPositionOffset, subtextPositionOffset}) {
     )
 }
 
-function Planets({texture,text,subtext,link,textPositionOffset,subtextPositionOffset}) {
+function DescText({subtext}) {
+
+}
+
+function Planets({texture,text,link,textPositionOffset,factor}) {
     const colorMap = useLoader(TextureLoader, texture);
-    const sizeFactor = 1; //used for resizing the objects inside canvas
+    const sizeFactor = factor;//used for resizing the objects inside canvas
 
     //TODO: Add Animations
 
@@ -79,7 +78,7 @@ function Planets({texture,text,subtext,link,textPositionOffset,subtextPositionOf
                     polar={[0,Math.PI / 2]}
                     azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
                     >
-                        <Text3D size={2.5 * sizeFactor} font={karla} position={[-5,0,0]}>
+                        <Text3D size={2.5 * sizeFactor} font={karla} position={[(-5 * sizeFactor),0,0]}>
                             <mesh />
                             {text}
                             <meshBasicMaterial />
@@ -106,26 +105,6 @@ function Planets({texture,text,subtext,link,textPositionOffset,subtextPositionOf
                     </PresentationControls>
                 </Canvas>
             </div>  
-
-            <div className='subtext'>
-                <Canvas>
-                    <ambientLight intensity={0.5}/>
-                    <directionalLight intensity={0.5} position={[-2,4,2]}/>
-
-                    <PresentationControls
-                    cursor={true}
-                    polar={[-(Math.PI / 30), (Math.PI / 30)]}
-                    azimuth={[-(Math.PI / 50), (Math.PI / 50)]}
-                    >
-                        <Text3D size={1.2 * sizeFactor} font={karla} position={subtextPositionOffset}>
-                            <mesh  />
-                            {subtext}
-                            <meshBasicMaterial />
-                        </Text3D>
-                    </PresentationControls>
-
-                </Canvas>
-            </div>
         </div>       
 
     );
@@ -139,10 +118,15 @@ class Interface extends React.Component{
 
         this.state = {
             currentIndex: 0,
+            factor: 1,
+            width: window.innerWidth,
         };
 
         this.rightIndex = this.rightIndex.bind(this);
         this.leftIndex = this.leftIndex.bind(this);
+        this.setFactor = this.setFactor.bind(this);
+        // this.updateDimensions = this.updateDimensions.bind(this);
+        
     }
 
     rightIndex() {
@@ -150,8 +134,41 @@ class Interface extends React.Component{
     }
 
     leftIndex() {
-
+        
     }
+
+    updateDimensions = () => {
+        this.setState({width: window.innerWidth});
+        this.setFactor();
+    }
+
+    setFactor() {
+        if (this.state.width > 1200) {
+            this.setState({factor: 1});
+
+        } else if (this.state.width < 1200) {
+            this.setState({factor: 0.8});
+
+        } else if (this.state.width < 992) {
+            this.setState({factor: 0.6});
+
+        } else if (this.state.width < 768) {
+            this.setState({factor: 0.2});
+
+        } 
+    }
+
+    componentWillMount() {
+        this.updateDimensions();
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.updateDimensions);
+      }
+      
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateDimensions);
+      }
 
     render(){
         return(
@@ -161,9 +178,9 @@ class Interface extends React.Component{
                     <span className='arrowBtn-left'>&#5130;</span>
                 </button>
                 
-                <Planets {...planetsData[1]}/>
+                <Planets {...planetsData[1]} factor={this.state.factor}/>
 
-                <button className='arrowBtn icon-right'>
+                <button className='arrowBtn icon-right' onClick={this.rightIndex}>
                     <span className='arrowBtn-right'>&#5125;</span>
                 </button>
                 
