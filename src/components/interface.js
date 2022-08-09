@@ -219,10 +219,23 @@ class Interface extends React.Component{
     }
 
     rightIndex() {
+        const currentIndex = this.currentIndex
+
+        this.setState({currentIndex: currentIndex + 1});
+
+        if(this.state.currentIndex === planetsData.length - 1) {
+            this.setState({currentIndex: 0});
+        }
     }
 
     leftIndex() {
-        
+        const currentIndex = this.currentIndex
+
+        this.setState({currentIndex: currentIndex - 1});
+
+        if(this.state.currentIndex < 0) {
+            this.setState({currentIndex: planetsData.length - 1});
+        }
     }
 
     updateDimensions = () => {
