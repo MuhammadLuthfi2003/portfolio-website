@@ -55,7 +55,7 @@ function Name({firstName, lastName, factor}) {
     return (
         <div className='intro-container'>
             <div className='picture-container'>
-
+                <img className='profpic' src={profpic} alt='My Profile' />
             </div>
 
             <div className='name-container'>
@@ -219,7 +219,6 @@ class Interface extends React.Component{
     }
 
     rightIndex() {
-
     }
 
     leftIndex() {
