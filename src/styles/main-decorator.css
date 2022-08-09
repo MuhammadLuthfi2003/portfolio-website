@@ -66,8 +66,12 @@
     color: rgb(26, 25, 25)
 }
 
-.arrowBtn {
+
+.icon-left {
     margin-right: 3rem;
+}
+
+.icon-right {
     margin-left: 3rem;
 }
 
@@ -76,7 +80,7 @@
 }
 
 .canvas-container {
-    width: 20vw;
+    width: 40vw;
 }
 
 #video-bg {
@@ -101,3 +105,8 @@
     padding: 3px 0;
     
 }
+
+
+
+    
+

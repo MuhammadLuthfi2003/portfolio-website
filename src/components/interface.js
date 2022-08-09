@@ -6,12 +6,14 @@ import {TextureLoader} from 'three/src/loaders/TextureLoader';
 
 //import texture
 import jupiterTexture from '../images/jupiter-texture.png';
-import earthTexture from '../images/earth_texture.jpg';
 import marsTexture from '../images/mars_texture.jpg';
 import neptuneTexture from '../images/neptune_texture.jpg';
 
 //import fonts json file
 import karla from '../fonts/Karla SemiBold_Regular.json';
+
+//import profilepicture file
+import profpic from '../images/profpic.png';
 
 
 const planetsData = [
@@ -21,7 +23,7 @@ const planetsData = [
         subtext: 'Azzahra Rammadhani',
         link: '/',
         isPlanet: false,
-        textPositionOffset: [0,0,0],
+        xOffset: [0,0,0],
     },
     {
         texture: jupiterTexture,
@@ -29,7 +31,7 @@ const planetsData = [
         subtext: 'Things About Me!',
         link: '/about',
         isPlanet: true,
-        textPositionOffset: [-2,4,2],
+        xOffset: -5,
     },
     {
         texture: marsTexture,
@@ -37,7 +39,7 @@ const planetsData = [
         subtext: 'A Collections of My Projects',
         link: '/projects',
         isPlanet: true,
-        textPositionOffset: [0,0,0],
+        xOffset: -7,
     },
     {
         texture: neptuneTexture,
@@ -45,19 +47,52 @@ const planetsData = [
         subtext: 'All of My Social Media Contacts!',
         link: '/contact',
         isPlanet: true,
-        textPositionOffset: [0,0,0],
+        xOffset: -7,
     }
 ]
 
-function Name({text,subtext, textPositionOffset}) {
+function Name({firstName, lastName, factor}) {
     return (
-        <div className='canvas-container'>
-            <div className='name-container'>
+        <div className='intro-container'>
+            <div className='picture-container'>
 
+            </div>
+
+            <div className='name-container'>
+                <div className='firstName-container'>
+                    <Canvas>
+                        <ambientLight intensity={0.5}/>
+                        <directionalLight intensity={0.5} position={[-2,4,2]} />
+
+                        <PresentationControls
+                        cursor={true}
+                        polar={[0,Math.PI / 2]}
+                        azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
+                        >
+
+                        </PresentationControls>
+                    </Canvas>
+                </div>
+
+                <div className='lastName-container'>
+                    <Canvas>
+                        <ambientLight intensity={0.5}/>
+                        <directionalLight intensity={0.5} position={[-2,4,2]} />
+                        
+                        <PresentationControls
+                        cursor={true}
+                        polar={[0,Math.PI / 2]}
+                        azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
+                        >
+                            
+                        </PresentationControls>
+                    </Canvas>
+                </div>
             </div>
         </div>
     )
 }
+
 
 function DescText({subtext}) {
     return (
@@ -67,7 +102,7 @@ function DescText({subtext}) {
     )
 }
 
-function Planets({texture,text,link,textPositionOffset,factor}) {
+function Planets({texture,text,link,xOffset,factor}) {
     const colorMap = useLoader(TextureLoader, texture);
     const sizeFactor = factor;//used for resizing the objects inside canvas
 
@@ -78,14 +113,14 @@ function Planets({texture,text,link,textPositionOffset,factor}) {
             <div className='title-canvas'>
                 <Canvas>
                     <ambientLight intensity={0.5}/>
-                    <directionalLight intensity={0.5} position={textPositionOffset} />
+                    <directionalLight intensity={0.5} position={[-2,4,2]} />
 
                     <PresentationControls
                     cursor={true}
                     polar={[0,Math.PI / 2]}
                     azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
                     >
-                        <Text3D size={2.5 * sizeFactor} font={karla} position={[(-5 * sizeFactor),0,0]}>
+                        <Text3D size={2.5 * sizeFactor} font={karla} position={[(xOffset * sizeFactor),0,0]}>
                             <mesh />
                             {text}
                             <meshBasicMaterial />
@@ -118,6 +153,29 @@ function Planets({texture,text,link,textPositionOffset,factor}) {
     );
 }
 
+function CompletedName({leftIndex, rightIndex, firstName, lastName, description, factor}) {
+    return (
+        <div>
+        <div className='interface-container'>
+            <div className='planets-container'>
+                <div className='planets'>
+                    <button className='arrowBtn icon-left' onClick={leftIndex}>
+                        <span className='arrowBtn-left'>&#5130;</span>
+                    </button>
+                    
+                    <Name firstName={firstName} lastName={lastName} factor={factor}/>
+
+                    <button className='arrowBtn icon-right' onClick={rightIndex}>
+                        <span className='arrowBtn-right'>&#5125;</span>
+                    </button>
+                </div>
+            </div>
+            <DescText subtext={description}/>
+        </div>
+    </div>
+    )
+}
+
 
 function CompletedPlanet({factor,rightIndex,leftIndex,currentIndex}) {
     return (
@@ -148,7 +206,7 @@ class Interface extends React.Component{
         super(props);
 
         this.state = {
-            currentIndex: 1, // change this to 0 back again 
+            currentIndex: 0, // change this to 0 back again 
             factor: 1,
             width: window.innerWidth,
         };
@@ -214,7 +272,7 @@ class Interface extends React.Component{
                                 return <CompletedPlanet key={index} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={index}/>
                             }
                             else {
-                                return <Name key={index}/>
+                                return <CompletedName  factor={this.state.factor} key={index} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada' leftIndex={this.leftIndex} rightIndex={this.rightIndex}/>
                             }
                             
                         }
