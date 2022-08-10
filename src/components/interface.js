@@ -23,7 +23,7 @@ const planetsData = [
         subtext: 'Azzahra Rammadhani',
         link: '/',
         isPlanet: false,
-        xOffset: [0,0,0],
+        xOffset: -8,
     },
     {
         texture: jupiterTexture,
@@ -51,43 +51,32 @@ const planetsData = [
     }
 ]
 
-function Name({firstName, lastName, factor}) {
+function Name({firstName, lastName, factor, xOffset}) {
     return (
         <div className='intro-container'>
             <div className='picture-container'>
                 <img className='profpic' src={profpic} alt='My Profile' />
-            </div>
+                <Canvas className='name-canvas'>
+                    <ambientLight intensity={0.5}/>
+                    <directionalLight intensity={0.5} position={[-2,4,2]} />
 
-            <div className='name-container'>
-                <div className='firstName-container'>
-                    <Canvas>
-                        <ambientLight intensity={0.5}/>
-                        <directionalLight intensity={0.5} position={[-2,4,2]} />
-
-                        <PresentationControls
-                        cursor={true}
-                        polar={[0,Math.PI / 2]}
-                        azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
-                        >
-
-                        </PresentationControls>
-                    </Canvas>
-                </div>
-
-                <div className='lastName-container'>
-                    <Canvas>
-                        <ambientLight intensity={0.5}/>
-                        <directionalLight intensity={0.5} position={[-2,4,2]} />
-                        
-                        <PresentationControls
-                        cursor={true}
-                        polar={[0,Math.PI / 2]}
-                        azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
-                        >
+                    <PresentationControls
+                    cursor={true}
+                    polar={[0,Math.PI / 2]}
+                    azimuth={[-(Math.PI / 30), (Math.PI / 30)]}
+                    >
+                        <Text3D size={1 * factor} font={karla} position={[(xOffset * factor),0,0]}>
                             
-                        </PresentationControls>
-                    </Canvas>
-                </div>
+                            {firstName}
+                            <meshBasicMaterial />
+                        </Text3D>
+                        <Text3D size={1 * factor} font={karla} position={[(xOffset * factor),-1,0]}>
+                            
+                            {lastName}
+                            <meshBasicMaterial />
+                        </Text3D>
+                    </PresentationControls>
+                </Canvas>
             </div>
         </div>
     )
@@ -121,7 +110,7 @@ function Planets({texture,text,link,xOffset,factor}) {
                     azimuth={[-(Math.PI / 10), (Math.PI / 10)]}
                     >
                         <Text3D size={2.5 * sizeFactor} font={karla} position={[(xOffset * sizeFactor),0,0]}>
-                            <mesh />
+                            
                             {text}
                             <meshBasicMaterial />
                         </Text3D>
@@ -153,7 +142,7 @@ function Planets({texture,text,link,xOffset,factor}) {
     );
 }
 
-function CompletedName({leftIndex, rightIndex, firstName, lastName, description, factor}) {
+function CompletedName({leftIndex, rightIndex, firstName, lastName, description, factor, xOffset}) {
     return (
         <div>
         <div className='interface-container'>
@@ -163,7 +152,7 @@ function CompletedName({leftIndex, rightIndex, firstName, lastName, description,
                         <span className='arrowBtn-left'>&#5130;</span>
                     </button>
                     
-                    <Name firstName={firstName} lastName={lastName} factor={factor}/>
+                    <Name firstName={firstName} lastName={lastName} factor={factor} xOffset={xOffset}/>
 
                     <button className='arrowBtn icon-right' onClick={rightIndex}>
                         <span className='arrowBtn-right'>&#5125;</span>
@@ -284,7 +273,7 @@ class Interface extends React.Component{
                                 return <CompletedPlanet key={index} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={index}/>
                             }
                             else {
-                                return <CompletedName  factor={this.state.factor} key={index} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada' leftIndex={this.leftIndex} rightIndex={this.rightIndex}/>
+                                return <CompletedName  factor={this.state.factor} xOffset={planet.xOffset} key={index} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada' leftIndex={this.leftIndex} rightIndex={this.rightIndex}/>
                             }
                             
                         }
