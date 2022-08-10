@@ -12,6 +12,9 @@ import CompletedPlanet from '../components/home-components/completedPlanet';
 import LeftButton from './home-components/leftBtn';
 import RightButton from './home-components/rightBtn';
 
+//session storage key
+const PLANET_KEY = 'currentPlanet';
+
 const planetsData = [
     {
         texture: '',
@@ -61,28 +64,60 @@ class Interface extends React.Component{
         this.rightIndex = this.rightIndex.bind(this);
         this.leftIndex = this.leftIndex.bind(this);
         this.setFactor = this.setFactor.bind(this);
+        this.getCurrentIndex = this.getCurrentIndex.bind(this);
+        this.setIndex = this.setIndex.bind(this);
         // this.updateDimensions = this.updateDimensions.bind(this);
         
     }
 
     rightIndex() {
-        const currentIndex = this.currentIndex
+        let currentIndex = this.state.currentIndex
 
         this.setState({currentIndex: currentIndex + 1});
+        currentIndex++;
 
         if(this.state.currentIndex === planetsData.length - 1) {
+            currentIndex = 0;
             this.setState({currentIndex: 0});
+            
         }
+
+        this.setIndex(currentIndex)
+
+        window.location.reload();
+
     }
 
     leftIndex() {
-        const currentIndex = this.currentIndex
+        let currentIndex = this.state.currentIndex
 
         this.setState({currentIndex: currentIndex - 1});
+        currentIndex--;
 
         if(this.state.currentIndex < 0) {
+            currentIndex = planetsData.length - 1
             this.setState({currentIndex: planetsData.length - 1});
         }
+
+        this.setIndex(currentIndex);
+
+        window.location.reload();
+    }
+
+    //function to load from local storage
+    getCurrentIndex() {
+        if (typeof(Storage) !== "undefined") {
+            if (localStorage.getItem(PLANET_KEY)) {
+                this.setState({currentIndex: localStorage.getItem(PLANET_KEY)});
+            } else {
+                localStorage.setItem(PLANET_KEY, this.state.currentIndex);
+            }
+        }
+    }
+
+    //function to set local storage
+    setIndex(newIndex) {
+        localStorage.setItem(PLANET_KEY, newIndex);
     }
 
     updateDimensions = () => {
@@ -110,10 +145,12 @@ class Interface extends React.Component{
 
     componentWillMount() {
         this.updateDimensions();
+        this.getCurrentIndex();
 
     }
 
     componentDidMount() {
+        this.getCurrentIndex();
         window.addEventListener('resize', this.updateDimensions);
       }
       
