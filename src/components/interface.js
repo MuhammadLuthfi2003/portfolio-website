@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Canvas, useLoader, useFrame} from 'react-three-fiber';
+import {Canvas, useLoader, useFrame, ScissorCanvas, ScissorWindow} from 'react-three-fiber';
 import {Sphere, PresentationControls, Text3D} from '@react-three/drei';
 import {TextureLoader} from 'three/src/loaders/TextureLoader';
 
@@ -100,6 +100,7 @@ function Planets({texture,text,link,xOffset,factor}) {
     return(
         <div className='canvas-container'>
             <div className='title-canvas'>
+                
                 <Canvas>
                     <ambientLight intensity={0.5}/>
                     <directionalLight intensity={0.5} position={[-2,4,2]} />
@@ -195,7 +196,7 @@ class Interface extends React.Component{
         super(props);
 
         this.state = {
-            currentIndex: 0, // change this to 0 back again 
+            currentIndex: 1, // change this to 0 back again 
             factor: 1,
             width: window.innerWidth,
         };
