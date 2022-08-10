@@ -3,7 +3,7 @@ import {
     BrowserRouter as Router,
     Routes as Switch,
     Route
-  } from "react-router-dom";
+  } from "react-router-dom"
 
 import { createRoot } from 'react-dom/client';
 
@@ -30,10 +30,12 @@ class App extends React.Component {
                     <Navbar />
                     <div>
                         <Switch>
+                            
                             <Route path='/' element={<Home />}></Route>
                             <Route path='/about' element={<About />}></Route>
                             <Route path='/projects' element={<Projects />}></Route>
                             <Route path='/contact' element={<Contact />}></Route>
+
                         </Switch>
                     </div>
                 </div>
