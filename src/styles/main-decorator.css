@@ -51,7 +51,7 @@
     margin: 0 auto;
 }
 
-.planets > .arrowBtn {
+.arrowBtn {
     border-radius: 50%;
     height: 5rem;
     width: 5rem;
@@ -75,7 +75,7 @@
     margin-left: 3rem;
 }
 
-.planets > .arrowBtn:hover {
+.arrowBtn:hover {
     background-color: rgba(243, 240, 248, 0.8);
 }
 

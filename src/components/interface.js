@@ -9,6 +9,8 @@ import neptuneTexture from '../images/neptune_texture.jpg';
 /*Name, DescText, Planets, CompletedName, CompletedPlanet, */ 
 import CompletedName from '../components/home-components/completedName';
 import CompletedPlanet from '../components/home-components/completedPlanet';
+import LeftButton from './home-components/leftBtn';
+import RightButton from './home-components/rightBtn';
 
 const planetsData = [
     {
@@ -51,7 +53,7 @@ class Interface extends React.Component{
         super(props);
 
         this.state = {
-            currentIndex: 1, // change this to 0 back again 
+            currentIndex: 0, // change this to 0 back again 
             factor: 1,
             width: window.innerWidth,
         };
@@ -124,19 +126,58 @@ class Interface extends React.Component{
             <div>
                 {
                     //find the index that is the same with the current index
-                    planetsData.map((planet,index) => {
-                        if (index === this.state.currentIndex) {
-                            if (planet.isPlanet) {
-                                return <CompletedPlanet key={index} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={index} planetsData={planetsData}/>
-                            }
-                            else {
-                                return <CompletedName  factor={this.state.factor} xOffset={planet.xOffset} key={index} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada' leftIndex={this.leftIndex} rightIndex={this.rightIndex}/>
-                            }
-                            
-                        }
-                    })
+                    planetsData.findIndex(planet => planet.isPlanet === true) === this.state.currentIndex ?
+                    <CompletedPlanet {...planetsData[this.state.currentIndex]} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={this.state.currentIndex} planetsData={planetsData}/>
+                    :
+                    <CompletedName factor={this.state.factor} xOffset={planetsData[this.state.currentIndex].xOffset} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada'/>
                 }
-            </div>
+                {/* <LeftButton />
+                
+                <div className='carousel'>
+                    <ul>
+                        <li class='slide'>
+                            <CompletedName
+                            factor={this.state.factor} 
+                            xOffset={planetsData[this.state.currentIndex].xOffset}
+                            firstName='Muhammad Luthfi' 
+                            lastName='Azzahra Rammadhani' 
+                            description='An Aspiring Software Engineering Student In Universitas Gadjah Mada'/>
+                        </li>
+
+                        <li class='slide'>
+                            <CompletedPlanet 
+                            {...planetsData[0]}
+                            factor={this.state.factor} 
+                          rightIndex={this.rightIndex}
+                            leftIndex={this.leftIndex}
+                            currentIndex={0}
+                            planetsData={planetsData}/>
+                        </li>
+
+                        <li class='slide'>
+                        <CompletedPlanet 
+                            {...planetsData[1]}
+                            factor={this.state.factor} 
+                            rightIndex={this.rightIndex}
+                            leftIndex={this.leftIndex}
+                            currentIndex={1}
+                            planetsData={planetsData}/>
+                        </li>
+
+                        <li class='slide'>
+                        <CompletedPlanet 
+                            {...planetsData[2]}
+                            factor={this.state.factor} 
+                            rightIndex={this.rightIndex}
+                            leftIndex={this.leftIndex}
+                            currentIndex={2}
+                            planetsData={planetsData}/>
+                        </li>
+                    </ul>
+                </div>
+
+                <RightButton /> */}
+            </div>  
 
 
         );
