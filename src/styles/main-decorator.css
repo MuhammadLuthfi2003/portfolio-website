@@ -84,7 +84,60 @@
 }
 
 .profpic {
+    width: 40%;
+    height: 40%;
+    margin: 0% 5%;
+}
+
+.intro-container {
+    width: 75%;
+    text-align: start;
+}
+
+.picture-container {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1200px) {
+    .picture-container {
+        flex-direction: column;
+    }
+
+    .profpic {
+        margin: 0 20%;
+    }
+
+    .intro-container {
+        width: 50%;
+    }
+
+
+}
+
+@media screen and (max-width: 576px) {
+    .profpic {
+        width: 60%;
+        height: 60%;
+    }
+
+    .icon-left {
+        margin-right: 0.5rem;
+    }
     
+    .icon-right {
+        margin-left: 0.5rem;
+    }
+}
+
+    
+
+
+.name-canvas {
+    background: rgba(0,0,0,0);
+    width: 100%;
+    height: 35vh !important;
+
 }
 
 #video-bg {
