@@ -3,7 +3,7 @@ import React from 'react';
 //import desctext component
 import DescText from './descText';
 // import name component
-import Name from './name';
+import Name from './name-container';
 
 function CompletedName({firstName, lastName, description, factor, xOffset}) {
     return (

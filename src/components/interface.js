@@ -53,7 +53,7 @@ class Interface extends React.Component{
         super(props);
 
         this.state = {
-            currentIndex: 0, // change this to 0 back again 
+            currentIndex: 2, // change this to 0 back again 
             factor: 1,
             width: window.innerWidth,
         };
@@ -124,62 +124,19 @@ class Interface extends React.Component{
     render(){
         return(
             <div>
+                <LeftButton leftIndex={this.leftIndex}/>
+                <RightButton rightIndex={this.rightIndex}/>
+
                 {
                     //find the index that is the same with the current index
-                    planetsData.findIndex(planet => planet.isPlanet === true) === this.state.currentIndex ?
+                    planetsData.findIndex(planet => planet.isPlanet === this.state.currentIndex )  
+                    ?
                     <CompletedPlanet {...planetsData[this.state.currentIndex]} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={this.state.currentIndex} planetsData={planetsData}/>
                     :
                     <CompletedName factor={this.state.factor} xOffset={planetsData[this.state.currentIndex].xOffset} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada'/>
                 }
-                {/* <LeftButton />
                 
-                <div className='carousel'>
-                    <ul>
-                        <li class='slide'>
-                            <CompletedName
-                            factor={this.state.factor} 
-                            xOffset={planetsData[this.state.currentIndex].xOffset}
-                            firstName='Muhammad Luthfi' 
-                            lastName='Azzahra Rammadhani' 
-                            description='An Aspiring Software Engineering Student In Universitas Gadjah Mada'/>
-                        </li>
-
-                        <li class='slide'>
-                            <CompletedPlanet 
-                            {...planetsData[0]}
-                            factor={this.state.factor} 
-                          rightIndex={this.rightIndex}
-                            leftIndex={this.leftIndex}
-                            currentIndex={0}
-                            planetsData={planetsData}/>
-                        </li>
-
-                        <li class='slide'>
-                        <CompletedPlanet 
-                            {...planetsData[1]}
-                            factor={this.state.factor} 
-                            rightIndex={this.rightIndex}
-                            leftIndex={this.leftIndex}
-                            currentIndex={1}
-                            planetsData={planetsData}/>
-                        </li>
-
-                        <li class='slide'>
-                        <CompletedPlanet 
-                            {...planetsData[2]}
-                            factor={this.state.factor} 
-                            rightIndex={this.rightIndex}
-                            leftIndex={this.leftIndex}
-                            currentIndex={2}
-                            planetsData={planetsData}/>
-                        </li>
-                    </ul>
-                </div>
-
-                <RightButton /> */}
             </div>  
-
-
         );
     }
 }

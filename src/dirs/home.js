@@ -10,11 +10,9 @@ class Home extends React.Component {
         return (
             <div>
                 <VideoBG />
-                <Suspense fallback={LoadingScreen}>
                     <div class='content'>
                         <Interface />
                     </div>
-                </Suspense>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DescText from './descText';
-import Planets from './planet';
+import Planets from './planet-container';
 
 
 
