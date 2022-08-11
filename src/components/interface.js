@@ -38,7 +38,7 @@ const planetsData = [
         texture: marsTexture,
         text: 'Projects',
         subtext: 'A Collections of My Projects',
-        link: '/projects',
+        link: '/project',
         isPlanet: true,
         xOffset: -7,
         index: 2,
