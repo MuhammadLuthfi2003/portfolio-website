@@ -23,6 +23,7 @@ const planetsData = [
         link: '/',
         isPlanet: false,
         xOffset: -8,
+        index: 0,
     },
     {
         texture: jupiterTexture,
@@ -31,6 +32,7 @@ const planetsData = [
         link: '/about',
         isPlanet: true,
         xOffset: -5,
+        index: 1,
     },
     {
         texture: marsTexture,
@@ -39,6 +41,7 @@ const planetsData = [
         link: '/projects',
         isPlanet: true,
         xOffset: -7,
+        index: 2,
     },
     {
         texture: neptuneTexture,
@@ -47,6 +50,7 @@ const planetsData = [
         link: '/contact',
         isPlanet: true,
         xOffset: -7,
+        index: 3,
     }
 ]
 
@@ -72,16 +76,13 @@ class Interface extends React.Component{
 
     rightIndex() {
         let currentIndex = this.state.currentIndex
-
-        this.setState({currentIndex: currentIndex + 1});
         currentIndex++;
 
-        if(this.state.currentIndex === planetsData.length - 1) {
+        if(currentIndex > planetsData.length - 1) {
             currentIndex = 0;
-            this.setState({currentIndex: 0});
-            
         }
 
+        this.setState({currentIndex: currentIndex});
         this.setIndex(currentIndex)
 
         window.location.reload();
@@ -90,15 +91,13 @@ class Interface extends React.Component{
 
     leftIndex() {
         let currentIndex = this.state.currentIndex
-
-        this.setState({currentIndex: currentIndex - 1});
         currentIndex--;
 
-        if(this.state.currentIndex < 0) {
+        if(currentIndex < 0) {
             currentIndex = planetsData.length - 1
-            this.setState({currentIndex: planetsData.length - 1});
         }
 
+        this.setState({currentIndex: currentIndex});
         this.setIndex(currentIndex);
 
         window.location.reload();
@@ -108,7 +107,7 @@ class Interface extends React.Component{
     getCurrentIndex() {
         if (typeof(Storage) !== "undefined") {
             if (localStorage.getItem(PLANET_KEY)) {
-                this.setState({currentIndex: localStorage.getItem(PLANET_KEY)});
+                this.setState({currentIndex: parseInt(localStorage.getItem(PLANET_KEY))});
             } else {
                 localStorage.setItem(PLANET_KEY, this.state.currentIndex);
             }
@@ -146,7 +145,6 @@ class Interface extends React.Component{
     componentWillMount() {
         this.updateDimensions();
         this.getCurrentIndex();
-
     }
 
     componentDidMount() {
@@ -165,12 +163,10 @@ class Interface extends React.Component{
                 <RightButton rightIndex={this.rightIndex}/>
 
                 {
-                    //find the index that is the same with the current index
-                    planetsData.findIndex(planet => planet.isPlanet === this.state.currentIndex )  
-                    ?
-                    <CompletedPlanet {...planetsData[this.state.currentIndex]} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={this.state.currentIndex} planetsData={planetsData}/>
-                    :
-                    <CompletedName factor={this.state.factor} xOffset={planetsData[this.state.currentIndex].xOffset} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada'/>
+                   //find the index that is the same with the current index
+                   planetsData.findIndex((planet) => planet.index === this.state.currentIndex) === 0 
+                   ? <CompletedName factor={this.state.factor} xOffset={planetsData[this.state.currentIndex].xOffset} firstName='Muhammad Luthfi' lastName='Azzahra Rammadhani' description='An Aspiring Software Engineering Student In Universitas Gadjah Mada'/> 
+                   : <CompletedPlanet {...planetsData[this.state.currentIndex]} factor={this.state.factor} rightIndex={this.rightIndex} leftIndex={this.leftIndex} currentIndex={this.state.currentIndex} planetsData={planetsData}/>
                 }
                 
             </div>  
