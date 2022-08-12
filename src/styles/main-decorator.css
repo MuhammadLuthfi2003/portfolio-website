@@ -5,15 +5,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
-    /* overflow-y: hidden; */
+    overflow-y: clip;
 }
 
 .content {
     background-size: 100vw; 
     position: relative;
-    /* height: 100vh; */
+    height: 100vh;
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -49,7 +50,7 @@
 
 .planets-container {
     width: 95vw;
-    margin: 0 auto;
+    margin: 0 20%;
 }
 
 .arrowBtn {
@@ -91,7 +92,7 @@
 }
 
 .intro-container {
-    width: 75%;
+    width: 80%;
     text-align: start;
 }
 
@@ -110,15 +111,32 @@
     }
 
     .intro-container {
-        width: 50%;
+        width: 75%;
+    }
+
+    .icon-left {
+        margin-right: 1rem;
+    }
+    
+    .icon-right {
+        margin-left: 1rem;
+    }
+
+    .arrowBtn {
+        height : 4rem;
+        width : 4rem;
+    }
+
+    .arrowBtn-left, .arrowBtn-right {
+        font-size: 2rem;
     }
 
 }
 
 @media screen and (max-width: 576px) {
     .profpic {
-        width: 60%;
-        height: 60%;
+        width: 50%;
+        height: 50%;
     }
 
     .icon-left {
@@ -128,10 +146,16 @@
     .icon-right {
         margin-left: 0.5rem;
     }
+
+    .arrowBtn {
+        height : 2rem;
+        width : 2rem;
+    }
+
+    .arrowBtn-left, .arrowBtn-right {
+        font-size: 1rem;
+    }
 }
-
-    
-
 
 .name-canvas {
     background: rgba(0,0,0,0);

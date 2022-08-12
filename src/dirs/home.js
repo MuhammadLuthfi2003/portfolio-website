@@ -9,10 +9,11 @@ import HomeFooter from '../components/home-components/home-footer';
 class Home extends React.Component {
     render() {
         return (
-            <div>
+            <div className='container'>
                 <VideoBG />
                     <div class='content'>
                         <Interface />
+                        <HomeFooter />
                     </div>
             </div>
         )
