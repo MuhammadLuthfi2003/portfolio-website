@@ -101,7 +101,47 @@
     flex-direction: row;
 }
 
+.home-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.home-button-container {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 1rem;
+}
+
+.home-icon {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 2rem;
+    color:rgba(223, 211, 243, 0.5);
+    border:none;
+}
+
+.home-icon:hover {
+    color: rgba(223, 211, 243, 1);
+}
+
+
+
 @media screen and (max-width: 1200px) {
+
+    .profpic {
+        width: 40%;
+        height: 40%;
+        margin-left: 10%;
+    }
+
+    .name-canvas {
+        height: 20vh;
+    }
+
     .picture-container {
         flex-direction: column;
     }
@@ -131,6 +171,50 @@
         font-size: 2rem;
     }
 
+    .subtext-container {
+        margin-top: 0 !important;
+    }
+
+    .planets-container {
+        height: 75vh;
+        width: 95vw;
+    }
+
+}
+
+@media screen and (max-width: 996px) {
+    .picture-container {
+        flex-direction: column;
+    }
+    
+    .profpic {
+        margin: 0 20%;
+    }
+    
+    .intro-container {
+        width: 75%;
+    }
+    
+    .icon-left {
+        margin-right: 1rem;
+    }
+    
+    .icon-right {
+        margin-left: 1rem;
+    }
+    
+    .arrowBtn {
+        height : 4rem;
+        width : 4rem;
+    }
+    
+    .arrowBtn-left, .arrowBtn-right {
+        font-size: 2rem;
+    }
+    
+    .subtext-container {
+        margin-top: 0 !important;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -154,6 +238,25 @@
 
     .arrowBtn-left, .arrowBtn-right {
         font-size: 1rem;
+    }
+
+    .home-title {
+        font-size : 1rem;
+    }
+
+    .home-button-container {
+        display:flex;
+        flex-direction: row;
+        justify-content:space-between;
+        width: 3rem;
+        height: 3rem;
+        margin-top: 1rem;
+    }
+    
+    .home-icon {
+        width: 2rem;
+        height: 2rem;
+        margin: 0 1.25rem;
     }
 }
 
@@ -180,7 +283,7 @@
     background-color:rgba(26, 25, 25, 0.75);
     width: 50vw;
     border-radius: 10px;
-    margin-top: 2rem;
+    margin-top: 3rem;
     color: #ffffff;
     font-weight: bold;
     padding: 3px 0;

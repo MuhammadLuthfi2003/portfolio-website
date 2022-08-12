@@ -4,6 +4,7 @@ import React from 'react';
 import DescText from './descText';
 // import name component
 import Name from './name-container';
+import HomeFooter from './home-footer';
 
 function CompletedName({firstName, lastName, description, factor, xOffset}) {
     return (
@@ -17,6 +18,7 @@ function CompletedName({firstName, lastName, description, factor, xOffset}) {
                 </div>
             </div>
             <DescText subtext={description}/>
+            <HomeFooter />
         </div>
     </div>
     )
