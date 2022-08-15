@@ -1,6 +1,6 @@
 import React from 'react';
-import profpic from '../images/profpic.png';
-import { useSpring, animated } from 'react-spring';
+
+import IntroText from './about-components/intro-text';
 
 
 class AboutInterface extends React.Component {
@@ -16,12 +16,7 @@ class AboutInterface extends React.Component {
         return (
             <div className='about-container'>
                     <div className='about-header'>
-                        <img src={profpic} alt='my profile'/>
-                        <div className='about-header-text'>
-                            <span className='intro-text'>Hello, My Name is</span>
-
-
-                        </div>
+                        <IntroText />
                     </div>
                     <div className='about-content'>
 
