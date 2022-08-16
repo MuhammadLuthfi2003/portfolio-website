@@ -2,6 +2,11 @@ import React from 'react';
 
 import IntroText from './about-components/intro-text';
 
+//import components
+import Tools from './about-components/tools';
+import Education from './about-components/education';
+import Description from './about-components/description';
+
 
 class AboutInterface extends React.Component {
     constructor(props) {
@@ -19,7 +24,15 @@ class AboutInterface extends React.Component {
                         <IntroText />
                     </div>
                     <div className='about-content'>
-
+                        <div className='about-child description'>
+                            <Description />
+                        </div>
+                        <div className='about-child education'>
+                            <Education />
+                        </div>
+                        <div className='about-child tools'>
+                            <Tools />
+                        </div>
                     </div>
             </div>
         )

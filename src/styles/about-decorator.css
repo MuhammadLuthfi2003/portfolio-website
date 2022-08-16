@@ -10,10 +10,16 @@
 .txt-header-text {
     color: #ffffff;
     font-size: 2em;
+    font-weight: bold;
 }
 
 .txt-header {
     text-align: center;
     margin-top: 1rem;
+}
+
+.about-content {
+    display: flex;
+    
 }
   
