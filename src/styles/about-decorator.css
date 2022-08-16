@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
+    color: #ffffff;
 }
 
 .txt-header-text {
@@ -20,6 +21,38 @@
 
 .about-content {
     display: flex;
-    
+    justify-content:space-around;
+}
+
+.description-header, .tools-header, .education-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.tool-component {
+    display: flex;
+    flex-direction: row;
+    margin: auto 0;
+}
+
+.tool-icon {
+    width: 3rem;   
+}
+
+.tool-icon-unity {
+    width: 3rem;
+    transform: scale(1.2, 0.52);
+}
+
+.tools-header, .description-header, .education-header {
+    text-align: center;
+}
+
+.tool-text {
+    padding: 20px;
+    margin: 20px auto;
+    font-weight: 200;
+    font-size: 2em;
 }
   
