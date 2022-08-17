@@ -63,7 +63,7 @@ function Tools() {
     return (
         <div>
             <div className='tools-header'>
-                <span className='tools-title'>Tools</span>
+                <span className='tools-title'>Tools ⚒️</span>
             </div>
             <div className='tools-content'>
                 {

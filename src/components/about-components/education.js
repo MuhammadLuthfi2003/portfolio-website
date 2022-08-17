@@ -4,7 +4,7 @@ function Education() {
     return (
         <div>
             <div className='education-header'>
-                <span className='education-title'>Education</span>
+                <span className='education-title'>Education 🎓</span>
             </div>
             <div className='education-content'>
                 {/* TODO: ADD TIMELINE*/ }

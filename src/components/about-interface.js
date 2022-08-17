@@ -26,8 +26,6 @@ class AboutInterface extends React.Component {
                     <div className='about-content'>
                         <div className='about-child description'>
                             <Description />
-                        </div>
-                        <div className='about-child education'>
                             <Education />
                         </div>
                         <div className='about-child tools'>

@@ -42,7 +42,7 @@
 
 .tool-icon-unity {
     width: 3rem;
-    transform: scale(1.2, 0.52);
+    transform: scale(1.2, 0.50);
 }
 
 .tools-header, .description-header, .education-header {
@@ -55,4 +55,19 @@
     font-weight: 200;
     font-size: 2em;
 }
-  
+
+.emoji {
+    font-size: 2em;
+    margin: 20px auto;
+}
+
+.point {
+    list-style-type: none;
+}
+
+.point-content {
+    font-size: 1.2em;
+    font-weight: 300;
+    float: right;
+    margin-top: 0.8em;
+}
