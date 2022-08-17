@@ -17,7 +17,7 @@ function Description() {
                         <span className='point-content'>Currently Studying In Universitas Gadjah Mada</span>
                     </li>
                     <li className='point-child'>
-                        <span className='emoji'>🌐/🎮</span>
+                        <span className='emoji'>🌐</span>
                         <span className='point-content'>I Mainly Focus In FrontEnd Web and Game Development</span>
                     </li>
                 </ul>

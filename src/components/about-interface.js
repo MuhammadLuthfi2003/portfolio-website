@@ -6,6 +6,7 @@ import IntroText from './about-components/intro-text';
 import Tools from './about-components/tools';
 import Education from './about-components/education';
 import Description from './about-components/description';
+import ContactRedirect from './about-components/contact-redirect';
 
 
 class AboutInterface extends React.Component {
@@ -27,6 +28,7 @@ class AboutInterface extends React.Component {
                         <div className='about-child description'>
                             <Description />
                             <Education />
+                            <ContactRedirect />
                         </div>
                         <div className='about-child tools'>
                             <Tools />
