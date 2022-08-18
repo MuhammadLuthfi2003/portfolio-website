@@ -7,7 +7,7 @@ class About extends React.Component {
         return (
             <div>
                 <VideoBG />
-                <div class='contents'>
+                <div className='contents'>
                     <AboutInterface />
                 </div>
             </div>

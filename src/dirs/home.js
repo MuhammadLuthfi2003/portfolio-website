@@ -10,7 +10,7 @@ class Home extends React.Component {
         return (
             <div className='container'>
                 <VideoBG />
-                    <div class='content'>
+                    <div className='content'>
                         <Interface />
                         
                     </div>
