@@ -137,7 +137,10 @@
     }
 
     .point-child {
+        display:flex;
+        flex-direction: column;
         overflow-y: visible;
+        text-align: center;
     }
 }
 
@@ -149,7 +152,10 @@
     }
 
     .point-child {
+        display:flex;
+        flex-direction: column;
         overflow-y: visible;
+        text-align: center;
     }
 
 }
