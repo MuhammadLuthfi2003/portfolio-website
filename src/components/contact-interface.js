@@ -64,7 +64,7 @@ function ContactInterface() {
                         ))
                     }
                 </ul>
-                <span className='footer-txt'>Made With ❤️</span>
+                <span className='footer-txt'>Made With ❤️ From 🇮🇩</span>
                 <Canvas className='contact-planet'>
                     <Planet texture={earthTexture} link='/' factor={1}/>
                 </Canvas>
