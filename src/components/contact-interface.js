@@ -1,8 +1,39 @@
 import React from 'react';
 import {Canvas} from 'react-three-fiber';
-import {Text3D, PresentationControls} from '@react-three/drei';
+import {Text3D, PresentationControls,} from '@react-three/drei';
 
 import karla from '../fonts/Karla SemiBold_Regular.json';
+
+import ContactList from './contact-components/contact-list';
+import { faTwitter, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
+import earthTexture from '../images/earth_texture.jpg';
+
+import Planet from './home-components/planet';
+
+const links = [
+    {
+        icon: faTwitter,
+        link: 'https://twitter.com/muhluthfiar',
+        title: 'twitter'
+    },
+    {
+        icon: faGithub,
+        link: 'https://github.com/MuhammadLuthfi2003',
+        title: 'github'
+    },
+    {
+        icon: faInstagram,
+        link: 'https://www.instagram.com/muhluthfiar_/',
+        title: 'instagram'
+    },
+    {
+        icon: faLinkedin,
+        link: 'https://www.linkedin.com/in/muhluthfiar/',
+        title: 'linkedin'
+    }
+]
+
 
 function ContactInterface() {
     return (
@@ -26,7 +57,17 @@ function ContactInterface() {
                 </Canvas>
             </div>
             <div className='contact-body'>
-
+                <ul className='contact-list'>
+                    {
+                        links.map(({icon, link, title}) => (
+                            <ContactList icon={icon} link={link} title={title} key={title}/>
+                        ))
+                    }
+                </ul>
+                <span className='footer-txt'>Made With ❤️</span>
+                <Canvas className='contact-planet'>
+                    <Planet texture={earthTexture} link='/' factor={1}/>
+                </Canvas>
             </div>
         </div>
     )

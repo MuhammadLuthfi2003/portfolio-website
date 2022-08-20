@@ -8,3 +8,40 @@
     color: #ffffff;
 }
 
+.contact-list {
+    text-align: center;
+    list-style-type: none;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #343030c6;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-link:hover {
+    background-color: #4b4848de;
+    color: #ffffff;
+}
+
+.contacts-icon {
+    float: left;
+    margin-right: 10px;
+}
+
+.footer-txt {
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
