@@ -68,6 +68,7 @@ function ContactInterface() {
                 <Canvas className='contact-planet'>
                     <Planet texture={earthTexture} link='/' factor={1}/>
                 </Canvas>
+                <span className='credits'>&copy;2022 Muhammad Luthfi Azzahra Rammadhani</span>
             </div>
         </div>
     )

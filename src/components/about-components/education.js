@@ -2,7 +2,7 @@ import React from 'react';
 
 function Education() {
     return (
-        <div className='education-container'>
+        <div className='education-main'>
             <div className='education-header'>
                 <span className='education-title'>Education 🎓</span>
             </div>

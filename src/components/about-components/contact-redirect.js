@@ -6,7 +6,7 @@ function redirect(link) {
 
 function ContactRedirect() {
     return (
-        <div>
+        <div className='about-contact'>
             <div className='contact-redirect-container'>
                 <div className='contact-redirect-header'>
                     Get To Know More About Me Here ⬇️⬇️⬇️

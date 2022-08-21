@@ -2,7 +2,7 @@ import React from 'react';
 
 function Description() {
     return (
-        <div>
+        <div className='description-container'>
             <div className='description-header'>
                 <span className='description-title'>Some Facts About Me! 🔥</span>
             </div>

@@ -45,3 +45,11 @@
     font-weight: bold;
 }
 
+.credits {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    display: table;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.748)
+}
+

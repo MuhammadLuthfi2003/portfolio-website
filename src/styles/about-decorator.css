@@ -72,7 +72,7 @@
     margin-top: 0.8em;
 }
 
-.education-header {
+.education-main {
     margin-top: 3rem;
 }
 
@@ -88,7 +88,7 @@
     margin-top: 10px;
 } 
 
-.contact-redirect-container {
+.about-contact {
     margin-top: 3rem;
 }
 
@@ -106,6 +106,16 @@
 .contact-redirect-button:hover {
     color: rgba(255, 255, 255, 0.892);
     background-color: rgba(72, 128, 242, 0.974);
+}
+
+.education-main, .tool-container, .description-container, .about-contact {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
 }
 
 @media screen and (max-width:768px) {

@@ -61,7 +61,7 @@ function UnityComponent() {
 
 function Tools() {
     return (
-        <div>
+        <div className='tool-container'>
             <div className='tools-header'>
                 <span className='tools-title'>Tools I Use ⚒️</span>
             </div>
