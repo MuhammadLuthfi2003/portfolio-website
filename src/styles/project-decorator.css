@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
     color: #ffffff;
+    overflow-y:auto;
 }
 
 .projects {
