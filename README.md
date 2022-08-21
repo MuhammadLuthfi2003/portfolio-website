@@ -25,11 +25,10 @@
  4. Three.js
  5. FontAwesome
 
-
----
-
 ### Portfolio Website Logs :
  - **First Deployed At :** 21/08/22
  - **Time Taken :** 18 Days
  - **Last Updated At :** 21/08/22
- - **Total Commits :** 55
+ - **Total Commits :** 54
+---
+
