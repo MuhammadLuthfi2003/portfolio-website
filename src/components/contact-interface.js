@@ -37,7 +37,7 @@ const links = [
 
 function ContactInterface() {
     return (
-        <div>
+        <div className='contact-container'>
             <div className='contact-title'>
                 <Canvas>
                     <mesh>

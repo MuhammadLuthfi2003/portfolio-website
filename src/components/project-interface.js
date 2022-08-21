@@ -44,7 +44,7 @@ const card = [
 
 function ProjectInterface() {
     return (
-        <div>
+        <div className='project-container'>
             <div className='project-header'>
                 <Canvas>
                     <mesh>

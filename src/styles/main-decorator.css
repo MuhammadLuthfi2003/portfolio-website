@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
-    overflow-y: clip;
+    
 }
 
 .content {
@@ -17,6 +17,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: clip;
+    /* overflow-x:clip; */
 }
 
 .interface-container {
@@ -26,6 +28,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-y: clip;
 }
 
 .title-canvas {
@@ -92,8 +95,9 @@
 }
 
 .intro-container {
-    width: 80%;
+    width: 60%;
     text-align: start;
+    /* overflow-y: clip; */
 }
 
 .picture-container {
@@ -111,8 +115,6 @@
     display:flex;
     flex-direction: row;
     justify-content:space-between;
-    width: 3rem;
-    height: 3rem;
     margin-top: 1rem;
 }
 
@@ -248,8 +250,6 @@
         display:flex;
         flex-direction: row;
         justify-content:space-between;
-        width: 3rem;
-        height: 3rem;
         margin-top: 1rem;
     }
     

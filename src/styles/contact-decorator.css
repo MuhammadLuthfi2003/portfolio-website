@@ -6,11 +6,12 @@
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
     color: #ffffff;
-    overflow-y: auto;
+    
 }
 
-.main-content {
+.contact-container {
     padding-bottom: 3rem;
+    overflow-y: auto;
 }
 
 .contact-list {

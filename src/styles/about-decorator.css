@@ -10,6 +10,7 @@
 
 .about-container {
     padding-top: 10px;
+    overflow-y:auto;
 }
 
 .txt-header-text {

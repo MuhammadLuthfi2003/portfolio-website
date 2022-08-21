@@ -6,6 +6,10 @@
     box-sizing: border-box;
     font-family: 'Karla', sans-serif;
     color: #ffffff;
+    
+}
+
+.project-container {
     overflow-y:auto;
 }
 
