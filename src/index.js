@@ -8,7 +8,7 @@ import {
 import { createRoot } from 'react-dom/client';
 
 //styles
-import './styles/main-decorator.css'
+import './styles/root-deco.css'
 
 //components
 import Navbar from './components/navbar';
@@ -28,7 +28,7 @@ class App extends React.Component {
             <Router>
                 <div>
                     <Navbar />
-                    <div>
+                    <div className='main-content'>
                         <Switch>
                             
                             <Route path='/' element={<Home />}></Route>

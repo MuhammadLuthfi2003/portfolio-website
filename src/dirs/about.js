@@ -6,7 +6,6 @@ class About extends React.Component {
     render(){
         return (
             <div>
-                <VideoBG />
                 <div className='contents'>
                     <AboutInterface />
                 </div>

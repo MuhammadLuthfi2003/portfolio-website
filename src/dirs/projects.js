@@ -8,7 +8,6 @@ class Projects extends React.Component {
     render(){
         return (
             <div>
-                <VideoBG />
                 <div className='project-container'>
                     <ProjectInterface />
                 </div>

@@ -8,6 +8,10 @@
     color: #ffffff;
 }
 
+.about-container {
+    padding-top: 10px;
+}
+
 .txt-header-text {
     color: #ffffff;
     font-size: 2em;

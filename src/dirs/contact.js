@@ -8,7 +8,6 @@ class Contact extends React.Component {
     render(){
         return (
             <div>
-                <VideoBG/>
                 <div className='contact-content'>
                     <ContactInterface />
                 </div>

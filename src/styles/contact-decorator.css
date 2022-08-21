@@ -8,6 +8,10 @@
     color: #ffffff;
 }
 
+.main-content {
+    padding-bottom: 3rem;
+}
+
 .contact-list {
     text-align: center;
     list-style-type: none;
