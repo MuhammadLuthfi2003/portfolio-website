@@ -44,10 +44,12 @@ body {
     color:#e8e3f1;
     padding: 1rem;
     display: block;
+    transition: all 0.3s ease-in-out;
 }
 
 .navbar-links li .navbar-links-dir:hover {
     background-color: #28272a;
+    transition: all 0.3s ease-in-out;
 }
 
 .toggle-btn {

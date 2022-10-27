@@ -106,11 +106,13 @@
     margin-top: 1rem;
     font-size: 0.7em;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .contact-redirect-button:hover {
     color: rgba(255, 255, 255, 0.892);
     background-color: rgba(72, 128, 242, 0.974);
+    transition: all 0.3s ease-in-out;
 }
 
 .education-main, .tool-container, .description-container, .about-contact {

@@ -28,7 +28,7 @@
 ### Portfolio Website Logs :
  - **First Deployed At :** 21/08/22
  - **Time Taken :** 18 Days
- - **Last Updated At :** 21/08/22
- - **Total Commits :** 54
+ - **Last Updated At :** 27/10/22
+
 ---
 

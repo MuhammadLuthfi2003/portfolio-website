@@ -11,6 +11,7 @@ import breakout from '../images/project-img/breakout-preview.png';
 import maze from '../images/project-img/maze-preview.png';
 import notes from  '../images/project-img/notes-preview.png';
 import rocket from '../images/project-img/rocket-preview.png';
+import jagabhumi from '../images/project-img/jagabhumi-preview.png'
 
 import venusTexture from '../images/venus_texture.jpg';
 
@@ -38,6 +39,12 @@ const card = [
         link: 'https://github.com/MuhammadLuthfi2003/basic-rocket-game',
         title: 'Rocket Game',
         description: 'A simple rocket game made with Unity'
+    },
+    {
+        img: jagabhumi,
+        link: 'https://github.com/MuhammadLuthfi2003/jagabhumi-demo',
+        title: 'Jagabhumi Demo',
+        description: 'A Game Submission For Gemastik XV Competition'
     }
 ]
 
