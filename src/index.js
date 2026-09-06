@@ -8,7 +8,7 @@ import {
 import { createRoot } from 'react-dom/client';
 
 //styles
-import './styles/root-deco.css'
+// import './styles/root-deco.css'
 
 //components
 import Navbar from './components/navbar';
