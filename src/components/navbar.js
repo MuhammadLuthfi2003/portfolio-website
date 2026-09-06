@@ -4,6 +4,7 @@ import {
   } from "react-router-dom";
 
 import '../styles/navbar-deco.css';
+import aboutArrow from '../images/icons/About Me Arrow.png';
 
 class Navbar extends React.Component {
 
@@ -36,14 +37,18 @@ class Navbar extends React.Component {
                         <li>
                             <Link to='/' className='navbar-links-dir'>Home</Link>
                         </li>
+                        <li className="navbar-spacer">/</li>
                         <li>
                             <Link to='/about' className='navbar-links-dir'>About</Link>
                         </li>
+                         <li className="navbar-spacer">/</li>
                         <li>
                             <Link to='/project' className='navbar-links-dir'>Projects</Link>
                         </li>
-                        <li>
-                            <Link to='/contact' className='navbar-links-dir'>Contact</Link>
+                         <li className="navbar-spacer">/</li>
+                        <li className="navbar-contact">
+                            <Link to='/contact' className='navbar-contact-dir'>Contact Me</Link>
+                            <img src={aboutArrow} className ="navbar-arrow"></img>
                         </li>
                     </ul>
                 </div>

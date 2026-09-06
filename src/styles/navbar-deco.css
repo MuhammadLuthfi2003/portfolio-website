@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #161518;
+    background-color: #FFFFFF;
     color: #e8e3f1;
     box-shadow: 1px 9px 32px -7px rgba(0,0,0,0.75);
 }
@@ -26,30 +26,64 @@ body {
 .navbar-logo {
     font-size: 1.3rem;
     margin: 1rem;
+    color: #1d1d1d;
+}
+
+.navbar-spacer {
+    color: #1d1d1d;
 }
 
 .navbar-links ul {
     margin: 0;
     padding: 0;
     display: flex;
-
+     align-items: center; /* add this */
 }
 
 .navbar-links li {
     list-style: none;
+    align-items: center;
+    margin-right: 10px;
 }
 
 .navbar-links li .navbar-links-dir {
     text-decoration: none;
-    color:#e8e3f1;
-    padding: 1rem;
-    display: block;
+    color:#1D1D1D;
+    padding: 0.5rem;
+    /* display: block; */
     transition: all 0.3s ease-in-out;
 }
 
 .navbar-links li .navbar-links-dir:hover {
     background-color: #28272a;
     transition: all 0.3s ease-in-out;
+    color: #FFFFFF;
+}
+
+.navbar-contact {
+    background-color: #90DE1B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem; /* your desired padding */
+}
+
+.navbar-contact:hover {
+    background-color: #bff570;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid black;
+}
+
+.navbar-contact-dir {
+    text-decoration: none;
+    color: #1d1d1d;
+    padding-right: 1rem;
+    font-weight: 500;
+}
+
+.navbar-arrow {
+    width:1rem;
+    height: 1rem;
 }
 
 .toggle-btn {
