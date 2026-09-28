@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/main-decorator.css';
-
+import HomeDisplay from '../components/home/home-display';
 
 
 class Home extends React.Component {
@@ -8,7 +8,7 @@ class Home extends React.Component {
         return (
             <div className='container'>
                     <div className='content'>
-                    
+                        <HomeDisplay />
                         
                     </div>
             </div>
