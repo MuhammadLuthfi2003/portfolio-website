@@ -48,7 +48,7 @@ class Navbar extends React.Component {
                          <li className="navbar-spacer">/</li>
                         <li className="navbar-contact">
                             <Link to='/contact' className='navbar-contact-dir'>Contact Me</Link>
-                            <img src={aboutArrow} className ="navbar-arrow"></img>
+                            <img src={aboutArrow} className ="navbar-arrow" alt="aboutArrow"></img>
                         </li>
                     </ul>
                 </div>
