@@ -27,16 +27,16 @@ class HomeDisplay extends React.Component {
                             <span class="contact-label">Contact Me</span>
 
                             <div class="icon-row">
-                                <a href="#" class="icon-btn" aria-label="ItchIo">
+                                <a href="https://sofutobekkusu.itch.io/" class="icon-btn" aria-label="ItchIo">
                                     <FontAwesomeIcon icon={faItchIo} />
                                 </a>
-                                <a href="#" class="icon-btn" aria-label="LinkedIn">
+                                <a href="https://www.linkedin.com/in/muhluthfiar/" class="icon-btn" aria-label="LinkedIn">
                                     <FontAwesomeIcon icon={faLinkedin} />
                                 </a>
-                                <a href="#" class="icon-btn" aria-label="GitHub">
+                                <a href="https://github.com/MuhammadLuthfi2003" class="icon-btn" aria-label="GitHub">
                                     <FontAwesomeIcon icon={faGithub} />
                                 </a>
-                                <a href="#" class="icon-btn" aria-label="Email">
+                                <a href="mailto:luthfiazzahra03@gmail.com" class="icon-btn" aria-label="Email">
                                     <FontAwesomeIcon icon={faEnvelope} />
                                 </a>
                             </div>
