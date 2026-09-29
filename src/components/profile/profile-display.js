@@ -1,5 +1,8 @@
 import React from 'react';
-import '../../styles/profile-decorator.css';
+import '../../styles/profile/profile-main-decorator.css';
+
+// components
+import ProfileHeader from './profile-header';
 
 class ProfileDisplay extends React.Component {
     render() {
@@ -7,24 +10,17 @@ class ProfileDisplay extends React.Component {
             <div className='profile-display'>
                 <div className='profile-display-container'>
 
-                    <div className="profile-header">
-                        {/* Left cell: green label */}
-                        <div className="profile-header-left">
-                            <span className="profile-header-label">&gt; Profile</span>
-                        </div>
+                    <ProfileHeader />
 
-                        {/* Right cell: barcode + plus marker */}
-                        <div className="profile-header-right">
-                            <span className="profile-barcode">PROFILE</span>
+                    <div className="profile-content">
+                        <p className="profile-content-title">Hi!, I'm Luthfi 👋</p>
+                        <p className="profile-content-text">
+                            I'm a passionate game programmer with experience in Unreal Engine, Unity, and Roblox Studio, specializing in User Interface, AI development and gameplay mechanics.  
 
-                            <div className="profile-marker">
-                                <span className="profile-marker-corner tl"></span>
-                                <span className="profile-marker-corner tr"></span>
-                                <span className="profile-marker-corner bl"></span>
-                                <span className="profile-marker-corner br"></span>
-                                <span className="profile-marker-plus"></span>
-                            </div>
-                        </div>
+                            I am eager to contribute technical expertise and creativity to a dynamic game development team.
+
+                            I love creating unique and unforgettable experiences for players!
+                        </p>
                     </div>
 
                 </div>
