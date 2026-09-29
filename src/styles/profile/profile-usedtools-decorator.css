@@ -1,0 +1,9 @@
+.used-tools {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-x: auto;      /* scroll sideways on small screens instead of squishing */
+    justify-content: center;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../src/styles/components/horizontal-display-decorator.css';
+import '../styles/components/horizontal-display-decorator.css';
 
 class HorizontalDisplay extends React.Component {
     render() {

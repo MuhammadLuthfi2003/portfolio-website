@@ -1,8 +1,75 @@
 .horizontal-display {
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    flex: 0 0 9.5rem;              /* fixed card width, no shrinking */
+    background-color: #fff;
+    color: var(--dark);
+}
+
+.horizontal-display-container {
+    position: relative;
+    height: 100%;
+    min-height: 12rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Green "#1" tag, top-left */
+.display-order {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: var(--green);
+    padding: 0.15rem 0.5rem;
+    z-index: 1;
+}
+
+.display-order-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Logo takes the leftover vertical space and centers itself */
+.display-image {
+    flex: 1;
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    background-color: #fff;
+    padding: 2.25rem 1rem 0.5rem;   /* top padding clears the tag */
+}
+
+.display-image img {
+    width: 100%;
+    max-width: 5.5rem;
+    height: auto;
+    object-fit: contain;
+}
+
+.display-title {
+    padding: 0.5rem 0.5rem 0.75rem;
+    text-align: center;
+}
+
+.display-title-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Hazard stripes along the bottom */
+.horizontal-display-container::after {
+    content: "";
+    width: 100%;
+    height: 1.25rem;
+    flex-shrink: 0;
+    margin-bottom: 0.5rem;          /* white gap under the stripes */
+    background: repeating-linear-gradient(
+        -60deg,
+        #d6d6d6 0 10px,
+        #fff 10px 20px
+    );
 }
