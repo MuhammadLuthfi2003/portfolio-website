@@ -15,14 +15,20 @@ class HomeDisplay extends React.Component {
                         <div class="block">
                             <text class="block-text">Muhammad Luthfi Azzahra Rammadhani</text>
                         </div>
-                        <div class="plus"></div>
+                        <div class="plus corner"></div>
+                        <div class="plus corner-bottom"></div>
+                        <div class="plus random-1"></div>
                         <div class="bracket tl"></div>
+                        <div class="bracket random-1"></div>
                         <div class="title-block">
                             <div class="bracket title-1"></div>
                             <div class="bracket title-2"></div>
+                            <div class="plus programmer"></div>
                             <text class="title-text">Game Programmer</text>
                         </div>
 
+                        <div class="plus contact"></div>
+                        <div class="bracket contact"></div>
                         <div class="contact-bar">
                             <span class="contact-label">Contact Me</span>
 

@@ -69,44 +69,54 @@
 }
 
 .contact-bar {
-  grid-column: 1 / -1;
-  grid-row: 8;
-  justify-self: end;
-  align-self: end;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 16px 24px;
+  grid-column: 12 / -1;          /* last 6 columns */
+  grid-row: 8;                   /* bottom row */
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+  align-items: stretch;
 }
 
 .contact-label {
+  grid-column: 1 / span 2;       /* label takes the first 2 cells */
+  align-self: center;
+  justify-self: end;
+  padding-right: 1rem;
   color: #fff;
   letter-spacing: 0.15em;
-  font-size: 15px;
-  margin-right: 8px;
+  font-size: 1.5rem;
+  text-align:left;
+  padding-left: 1rem;
+  font-weight: bold;
 }
 
 .icon-row {
-  display: flex;
-  gap: 10px;
+  grid-column: 3 / span 4;       /* 4 icons = 4 cells */
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
 }
 
 .icon-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: #fff;
-  color: #111;
-  border-radius: 3px;
+  width: 100%;                   /* fill the whole grid cell */
+  height: 100%;
+  color: #FFF;
+  font-size: 3rem;               /* icon size */
   text-decoration: none;
+  box-sizing: border-box;
+}
+
+.icon-btn:hover {
+  color: #1D1D1D;
+  background-color: #FFF;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Green "+" markers, made from two gradients */
 .plus {
-  grid-column: 16;
-  grid-row: 2;
   justify-self: center;
   align-self: center;
   width: 52px;
@@ -114,6 +124,26 @@
   background:
     linear-gradient(#91e01a, #91e01a) center / 100% 8px no-repeat,
     linear-gradient(#91e01a, #91e01a) center / 8px 100% no-repeat;
+}
+
+.plus.corner {
+  grid-column: 16;
+  grid-row: 2;
+}
+
+.plus.corner-bottom {
+  grid-column: 1;
+  grid-row: 8;
+}
+
+.plus.programmer {
+  grid-column: 16;
+  grid-row: 1;
+}
+
+.plus.random-1 {
+  grid-column: 11;
+  grid-row: 8;
 }
 
 /* Thin corner brackets */
@@ -140,7 +170,7 @@
   align-self: start;
   border-right-width: 3px;
   border-top-width: 3px;
-  transform: translate(15px, 0px);   /* x, y: right and up */
+  transform: translate(30px, 0px);   /* x, y: right and up */
 }
 
 .bracket.title-2 {
@@ -151,4 +181,22 @@
   border-left-width: 3px;
   border-bottom-width: 3px;
   transform: translate(-10px, 15px);   /* x, y: right and up */
+}
+
+.bracket.random-1 {
+  grid-column: 15;
+  grid-row: 3;
+  justify-self: center;
+  align-self: center;
+  border-right-width: 3px;
+  border-top-width: 3px;
+}
+
+.bracket.contact {
+  grid-column: 17;
+  grid-row: 7;
+  justify-self: center;
+  align-self: center;
+  border-right-width: 3px;
+  border-bottom-width: 3px;
 }
