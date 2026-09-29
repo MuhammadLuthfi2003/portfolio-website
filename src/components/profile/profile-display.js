@@ -3,6 +3,8 @@ import '../../styles/profile/profile-main-decorator.css';
 
 // components
 import ProfileHeader from './profile-header';
+import ProfileContent from './profile-content';
+import ProfileSeparator from './profile-separator';
 
 class ProfileDisplay extends React.Component {
     render() {
@@ -11,18 +13,8 @@ class ProfileDisplay extends React.Component {
                 <div className='profile-display-container'>
 
                     <ProfileHeader />
-
-                    <div className="profile-content">
-                        <p className="profile-content-title">Hi!, I'm Luthfi 👋</p>
-                        <p className="profile-content-text">
-                            I'm a passionate game programmer with experience in Unreal Engine, Unity, and Roblox Studio, specializing in User Interface, AI development and gameplay mechanics.  
-
-                            I am eager to contribute technical expertise and creativity to a dynamic game development team.
-
-                            I love creating unique and unforgettable experiences for players!
-                        </p>
-                    </div>
-
+                    <ProfileContent />
+                    <ProfileSeparator title="Projects" count={5} maxCount={25} />
                 </div>
             </div>
         )

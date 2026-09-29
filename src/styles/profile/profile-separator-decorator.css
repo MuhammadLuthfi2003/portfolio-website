@@ -1,0 +1,50 @@
+.profile-separator {
+    --line: rgba(255, 255, 255, 0.35);
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    /* the one knob: label text AND boxes scale from this */
+    font-size: 1.5rem;
+
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0 1rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+}
+
+/* Green label */
+.profile-separator-title {
+    background: var(--green);
+    color: var(--dark);
+    font-size: 1em;
+    line-height: 1.2;
+    padding: 0.5em 0.75em;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Row of boxes */
+.profile-separator-count {
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+}
+
+/* Box height = label height (1.2em line + 2 * 0.5em padding = 2.2em) */
+.profile-separator-box {
+    width: 2.2em;
+    height: 2.2em;
+    flex-shrink: 0;
+    border: 2px solid #fff;
+    background: var(--dark);
+    box-sizing: border-box;
+}
+
+.profile-separator-box.filled {
+    background: #fff;
+}
