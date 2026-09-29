@@ -15,11 +15,11 @@
 }
 
 .hero {
-  /* --cell-w: 66px;   /* width of one grid square  */
-  /*--cell-h: 63px;   height of one grid square */
-
-  --cell-w: 86px;   /* width of one grid square  */
-  --cell-h: 80px;   /* height of one grid square */
+  /* --cell-w: 86px;   /* width of one grid square  */
+  /*--cell-h: 80px;   height of one grid square */
+ /*width 17 x height 8*/
+  --cell-w: 5.88%;   /* width of one grid square  */
+  --cell-h: 12.5%;   /* height of one grid square */
   --line: rgba(255, 255, 255, 0.12);
 
   position: relative;
@@ -48,8 +48,60 @@
 
 .block-text {
   color: #1D1D1D;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: regular;
+  text-align: left;
+  padding: 1rem;
+}
+
+.title-block {
+  position: absolute;
+  left: calc(var(--cell-w) * 1);
+  top:  calc(var(--cell-h) * 4);
+  width:  calc(var(--cell-w) * 5);
+  height: calc(var(--cell-h) * 2);
+  text-align: left;
+  padding: 1rem;
+  /* background: #91e01a; */
+}
+
+.title-text {
+  color: #FFFFFF;
+  font-size: 3.5rem;
+  font-weight: regular;
+}
+
+.contact-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 16px 24px;
+}
+
+.contact-label {
+  color: #fff;
+  letter-spacing: 0.15em;
+  font-size: 15px;
+  margin-right: 8px;
+}
+
+.icon-row {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: #111;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 /* Green "+" markers, made from two gradients */
@@ -57,8 +109,8 @@
   position: absolute;
   width: 52px;
   height: 52px;
-  top: 60px;
-  right: 30px;
+  /* top: 60px;
+  right: 30px; */
   background:
     linear-gradient(#91e01a, #91e01a) center / 100% 8px no-repeat,
     linear-gradient(#91e01a, #91e01a) center / 8px 100% no-repeat;
@@ -67,8 +119,28 @@
 /* Thin corner brackets */
 .bracket {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border: 0 solid #fff;
 }
-.bracket.tl { top: 80px; left: 60px; border-top-width: 1px; border-left-width: 1px; }
+
+.bracket.tl { 
+  top: 4.5%; 
+  left: 2.5%; 
+  border-right-width: 3px; 
+  border-bottom-width: 3px; 
+}
+
+.bracket.title-1 { 
+  top: 10%; 
+  left: 35%; 
+  border-right-width: 3px; 
+  border-top-width: 3px; 
+}
+
+.bracket.title-2 { 
+  top:75%; 
+  left: 0%; 
+  border-left-width: 3px; 
+  border-bottom-width: 3px; 
+}
