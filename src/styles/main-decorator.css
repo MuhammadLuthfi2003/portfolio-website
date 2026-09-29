@@ -13,7 +13,7 @@
 .content {
     background-size: 100vw; 
     position: relative;
-    height: 100vh;
+    /* height: 100vh; */
     text-align: center;
     display: flex;
     flex-direction: column;

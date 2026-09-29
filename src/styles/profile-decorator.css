@@ -1,0 +1,104 @@
+.profile-display {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-display-container {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid white;
+}
+
+/* ---------- Header ---------- */
+.profile-header {
+    --line: rgba(255, 255, 255, 0.35);
+    --green: #91e01a;
+
+    width: 100%;
+    height: 8.5rem;
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--line);
+    padding: 0px 1rem;
+}
+
+/* Left cell (green label), divider on its right edge */
+.profile-header-left {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    border-right: 1px solid var(--line);
+}
+
+.profile-header-label {
+    width: 100%;
+    padding: 0.5rem 1.25rem;
+    background: var(--green);
+    color: #1d1d1d;
+    font-size: 2.75rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Right cell: barcode + marker pushed to the right */
+.profile-header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+}
+
+/* Vertical barcode (rotated Libre Barcode 128) */
+.profile-barcode {
+    font-family: 'Libre Barcode 128', system-ui;   /* overrides the global * font */
+    writing-mode: vertical-rl;
+    font-size: 3rem;
+    line-height: 1;
+    color: #fff;
+    max-height: 6rem;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Plus marker with four corner brackets */
+.profile-marker {
+    --size: 5rem;
+    --bracket: 1.1rem;
+
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    flex-shrink: 0;
+}
+
+.profile-marker-plus {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 3.25rem;
+    height: 3.25rem;
+    background:
+        linear-gradient(var(--green), var(--green)) center / 100% 6px no-repeat,
+        linear-gradient(var(--green), var(--green)) center / 6px 100% no-repeat;
+}
+
+.profile-marker-corner {
+    position: absolute;
+    width: var(--bracket);
+    height: var(--bracket);
+    border: 0 solid #fff;
+}
+
+.profile-marker-corner.tl { top: 0;    left: 0;  border-top-width: 2px;    border-left-width: 2px; }
+.profile-marker-corner.tr { top: 0;    right: 0; border-top-width: 2px;    border-right-width: 2px; }
+.profile-marker-corner.bl { bottom: 0; left: 0;  border-bottom-width: 2px; border-left-width: 2px; }
+.profile-marker-corner.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
