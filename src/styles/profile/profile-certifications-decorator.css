@@ -1,0 +1,6 @@
+.profile-certifications {
+    display: flex;
+    flex-direction: column;   /* vertical stacking like image 2 */
+    gap: 1rem;                /* the dark gap between cards */
+    padding: 1rem;
+}

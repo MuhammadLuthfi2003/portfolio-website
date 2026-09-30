@@ -64,7 +64,7 @@
 .horizontal-display-container::after {
     content: "";
     width: 100%;
-    height: 1.25rem;
+    height: 1.75rem;
     flex-shrink: 0;
     margin-bottom: 0.5rem;          /* white gap under the stripes */
     background: repeating-linear-gradient(

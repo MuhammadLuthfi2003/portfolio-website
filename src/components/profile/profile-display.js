@@ -6,6 +6,7 @@ import ProfileHeader from './profile-header';
 import ProfileContent from './profile-content';
 import ProfileSeparator from './profile-separator';
 import UsedTools from './profile-usedtools';
+import ProfileCertifications from './profile-certifications';
 
 class ProfileDisplay extends React.Component {
     render() {
@@ -17,6 +18,8 @@ class ProfileDisplay extends React.Component {
                     <ProfileContent />
                     <ProfileSeparator title="Tools I Commonly Use" count={5} maxCount={18} />
                     <UsedTools />
+                    <ProfileSeparator title="Certifications" count={10} maxCount={22} />
+                    <ProfileCertifications />
                 </div>
             </div>
         )

@@ -1,0 +1,133 @@
+.vertical-display {
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1.5rem 3.5rem 1.5rem 1.5rem;   /* right padding clears the stripes */
+    background-color: #fff;
+    color: var(--dark);
+    overflow: hidden;
+    text-align: left;
+}
+
+/* Green "#1" tag, top-left */
+.vertical-display-order {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: var(--green);
+    padding: 0.15rem 0.5rem;
+    z-index: 1;
+}
+
+.vertical-display-order-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Logo */
+.vertical-display-image {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1rem;
+}
+
+.vertical-display-image img {
+    width: 5.5rem;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Title + date, takes the leftover space */
+.vertical-display-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.vertical-display-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.vertical-display-date {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+/* Green button */
+.vertical-display-button {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 11rem;
+    padding: 1rem;
+    background-color: var(--green);
+    color: var(--dark);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.vertical-display-button:hover {
+    background-color: var(--dark);
+    color: #fff;
+}
+
+.vertical-display-button-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.vertical-display-button-arrow {
+    width: 1.75rem;
+    height: 1.75rem;
+    transition: filter 0.3s ease-in-out;
+}
+
+.vertical-display-button:hover .vertical-display-button-arrow {
+    filter: invert(1);   /* keeps the arrow visible on the dark hover background */
+}
+
+/* Hazard stripes on the right edge */
+.vertical-display::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.75rem;
+    height: 100%;
+    margin-right: 0.5rem;          /* white gap under the stripes */
+    background: repeating-linear-gradient(
+        -30deg,
+        #d6d6d6 0 10px,
+        #fff 10px 20px
+    );
+}
+
+/* Small screens: stack the content */
+@media only screen and (max-width: 700px) {
+    .vertical-display {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 3rem 3rem 1.5rem 1.5rem;
+    }
+
+    .vertical-display-image {
+        padding-left: 0;
+    }
+
+    .vertical-display-button {
+        width: 100%;
+    }
+}
