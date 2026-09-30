@@ -3,6 +3,7 @@ import '../../styles/experience/experience-main-decorator.css';
 
 // components
 import ExperienceHeader from './experience-header';
+import ExperienceTimeline from './experience-timeline';
 
 class ExperienceDisplay extends React.Component {
     render() {
@@ -10,6 +11,7 @@ class ExperienceDisplay extends React.Component {
             <div className='experience-display'>
                 <div className='experience-display-container'>
                     <ExperienceHeader />
+                    <ExperienceTimeline />
                 </div>
             </div>
         )
