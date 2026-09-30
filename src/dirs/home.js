@@ -15,6 +15,7 @@ class Home extends React.Component {
                         <HomeDisplay />
                         <BarcodeSpacer />
                         <ProfileDisplay />
+                        <BarcodeSpacer />
                     </div>
             </div>
         )
