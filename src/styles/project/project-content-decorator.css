@@ -3,9 +3,9 @@
     --dark: #1d1d1d;
     --line: rgba(255, 255, 255, 0.12);
 
-    width: 95%;
-    margin: 1rem auto 2rem;
-    border: 3px solid #fff;
+    width: 100%;
+    /* margin: 1rem auto 2rem;
+    border: 3px solid #fff; */
     background-color: var(--dark);
     text-align: left;
 }
