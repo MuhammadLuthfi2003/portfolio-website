@@ -1,0 +1,115 @@
+/* ---------- Experience Header ---------- */
+.experience-header {
+    --line: rgba(255, 255, 255, 0.35);
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    width: 100%;
+    height: 8.5rem;
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Left cell (green label), divider on its right edge */
+.experience-header-left {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-right: 1px solid var(--line);
+}
+
+.experience-header-label {
+    width: 100%;
+    padding: 1.75rem 1.5rem;
+    background: var(--green);
+    color: var(--dark);
+    font-size: 2.75rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Right cell: markers spread evenly */
+.experience-header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+}
+
+/* Marker = square with four white corner brackets */
+.experience-marker {
+    --size: 5rem;
+    --bracket: 1.1rem;
+
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    flex-shrink: 0;
+}
+
+.experience-marker-corner {
+    position: absolute;
+    width: var(--bracket);
+    height: var(--bracket);
+    border: 0 solid #fff;
+}
+
+.experience-marker-corner.tl { top: 0;    left: 0;  border-top-width: 2px;    border-left-width: 2px; }
+.experience-marker-corner.tr { top: 0;    right: 0; border-top-width: 2px;    border-right-width: 2px; }
+.experience-marker-corner.bl { bottom: 0; left: 0;  border-bottom-width: 2px; border-left-width: 2px; }
+.experience-marker-corner.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* Inner green-outlined box */
+.experience-marker-box {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 2px solid var(--green);
+    background: var(--dark);
+}
+
+/* Green filled bar, one side per variant */
+.experience-marker-box::after {
+    content: "";
+    position: absolute;
+    background: var(--green);
+}
+
+.experience-marker-box.right::after  { top: 0;    bottom: 0; right: 0;  width: 0.7rem; }
+.experience-marker-box.left::after   { top: 0;    bottom: 0; left: 0;   width: 0.7rem; }
+.experience-marker-box.bottom::after { left: 0;   right: 0;  bottom: 0; height: 0.7rem; }
+.experience-marker-box.top::after    { left: 0;   right: 0;  top: 0;    height: 0.7rem; }
+
+/* Small screens: smaller label, tighter markers */
+@media only screen and (max-width: 800px) {
+    .experience-header-left {
+        flex-basis: 40%;
+    }
+
+    .experience-header-label {
+        font-size: 1.5rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .experience-marker {
+        --size: 3.25rem;
+        --bracket: 0.7rem;
+    }
+
+    .experience-marker-box {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .experience-marker-box.right::after,
+    .experience-marker-box.left::after   { width: 0.45rem; }
+    .experience-marker-box.bottom::after,
+    .experience-marker-box.top::after    { height: 0.45rem; }
+}

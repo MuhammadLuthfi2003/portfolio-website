@@ -5,6 +5,7 @@ import '../styles/main-decorator.css';
 import BarcodeSpacer from '../components/barcode-spacer';
 import HomeDisplay from '../components/home/home-display';
 import ProfileDisplay from '../components/profile/profile-display';
+import ExperienceDisplay from '../components/experience/experience-display';
 
 
 class Home extends React.Component {
@@ -16,6 +17,7 @@ class Home extends React.Component {
                         <BarcodeSpacer />
                         <ProfileDisplay />
                         <BarcodeSpacer />
+                        <ExperienceDisplay />
                     </div>
             </div>
         )
