@@ -1,0 +1,90 @@
+.project-content {
+    --green: #91e01a;
+    --dark: #1d1d1d;
+    --line: rgba(255, 255, 255, 0.12);
+
+    width: 95%;
+    margin: 1rem auto 2rem;
+    border: 3px solid #fff;
+    background-color: var(--dark);
+    text-align: left;
+}
+
+/* ---------- Filter ---------- */
+.project-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.project-filter-label {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.project-filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.project-filter-tag {
+    padding: 0.35rem 0.75rem;
+    background: var(--dark);
+    color: #fff;
+    border: 1px solid var(--green);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-filter-tag:hover {
+    background: rgba(145, 224, 26, 0.2);
+}
+
+.project-filter-tag.active {
+    background: var(--green);
+    color: var(--dark);
+}
+
+.project-filter-tag:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ---------- Card grid (with the same grid-paper backdrop as the hero) ---------- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    background-image:
+        linear-gradient(to right,  var(--line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+}
+
+.project-empty {
+    grid-column: 1 / -1;
+    padding: 2rem 0;
+    color: #fff;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+}

@@ -1,0 +1,110 @@
+/* ---------- Project Header ---------- */
+.project-header {
+    --line: rgba(255, 255, 255, 0.35);
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    width: 100%;
+    height: 8.5rem;
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Left cell (green label), divider on its right edge */
+.project-header-left {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-right: 1px solid var(--line);
+}
+
+.project-header-label {
+    width: 100%;
+    padding: 1.75rem 1.5rem;
+    background: var(--green);
+    color: var(--dark);
+    font-size: 2.75rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Right cell: holds the corner brackets and the chevron row */
+.project-header-right {
+    --bracket: 1.25rem;
+    --inset: 0.75rem;
+
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    min-width: 0;
+}
+
+/* Four white corner brackets framing the whole right cell */
+.project-header-corner {
+    position: absolute;
+    width: var(--bracket);
+    height: var(--bracket);
+    border: 0 solid #fff;
+}
+
+.project-header-corner.tl { top: var(--inset);    left: var(--inset);  border-top-width: 2px;    border-left-width: 2px; }
+.project-header-corner.tr { top: var(--inset);    right: var(--inset); border-top-width: 2px;    border-right-width: 2px; }
+.project-header-corner.bl { bottom: var(--inset); left: var(--inset);  border-bottom-width: 2px; border-left-width: 2px; }
+.project-header-corner.br { bottom: var(--inset); right: var(--inset); border-bottom-width: 2px; border-right-width: 2px; }
+
+/* Chevron row */
+.project-chevrons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 0.5rem; */
+}
+
+.project-chevron {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 3.75rem;
+    height: 100%;
+    max-height: 5.5rem;
+    overflow: visible;
+}
+
+/* Outlined (empty) state */
+.project-chevron polygon {
+    fill: transparent;
+    stroke: var(--green);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+    stroke-linejoin: miter;
+}
+
+/* Filled state */
+.project-chevron.filled polygon {
+    fill: var(--green);
+}
+
+/* Small screens: smaller label, tighter row */
+@media only screen and (max-width: 800px) {
+    .project-header-label {
+        font-size: 1.5rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .project-header-right {
+        --bracket: 0.8rem;
+        --inset: 0.5rem;
+        padding: 1.25rem 1.25rem;
+    }
+
+    .project-chevrons {
+        gap: 0.25rem;
+    }
+}

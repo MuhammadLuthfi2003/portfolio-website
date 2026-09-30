@@ -6,7 +6,7 @@ import BarcodeSpacer from '../components/barcode-spacer';
 import HomeDisplay from '../components/home/home-display';
 import ProfileDisplay from '../components/profile/profile-display';
 import ExperienceDisplay from '../components/experience/experience-display';
-
+import ProjectDisplay from '../components/project/project-display';
 
 class Home extends React.Component {
     render() {
@@ -18,6 +18,9 @@ class Home extends React.Component {
                         <ProfileDisplay />
                         <BarcodeSpacer />
                         <ExperienceDisplay />
+                        <BarcodeSpacer />
+                        <ProjectDisplay />
+                        <BarcodeSpacer />
                     </div>
             </div>
         )
