@@ -39,6 +39,7 @@
     justify-content: flex-end;
     gap: 1.5rem;
     padding: 0 1.5rem;
+    min-width: 0;
 }
 
 /* Marker = square with four white corner brackets */
@@ -47,9 +48,9 @@
     --bracket: 1.1rem;
 
     position: relative;
-    width: var(--size);
-    height: var(--size);
-    flex-shrink: 0;
+    flex: 0 1 var(--size);        /* changed: can shrink, never grows past --size */
+    min-width: 0;
+    aspect-ratio: 1 / 1;          /* changed: height follows width, stays square */
 }
 
 .experience-marker-corner {
@@ -69,8 +70,8 @@
     position: absolute;
     inset: 0;
     margin: auto;
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 65%;
+    height: 65%;
     border: 2px solid var(--green);
     background: var(--dark);
 }
@@ -82,34 +83,43 @@
     background: var(--green);
 }
 
-.experience-marker-box.right::after  { top: 0;    bottom: 0; right: 0;  width: 0.7rem; }
-.experience-marker-box.left::after   { top: 0;    bottom: 0; left: 0;   width: 0.7rem; }
-.experience-marker-box.bottom::after { left: 0;   right: 0;  bottom: 0; height: 0.7rem; }
-.experience-marker-box.top::after    { left: 0;   right: 0;  top: 0;    height: 0.7rem; }
+.experience-marker-box.right::after  { top: 0;    bottom: 0; right: 0;  width: 22%; }
+.experience-marker-box.left::after   { top: 0;    bottom: 0; left: 0;   width: 22%; }
+.experience-marker-box.bottom::after { left: 0;   right: 0;  bottom: 0; height: 22%; }
+.experience-marker-box.top::after    { left: 0;   right: 0;  top: 0;    height: 22%; }
 
 /* Small screens: smaller label, tighter markers */
 @media only screen and (max-width: 800px) {
     .experience-header-left {
         flex-basis: 40%;
+        min-width: 0;
     }
 
     .experience-header-label {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding: 1.25rem 1rem;
+    }
+
+    .experience-header-right {
+        gap: 0.75rem;
+        padding: 0 1rem;
     }
 
     .experience-marker {
         --size: 3.25rem;
         --bracket: 0.7rem;
     }
+}
 
-    .experience-marker-box {
-        width: 2rem;
-        height: 2rem;
+/* Very small phones */
+@media only screen and (max-width: 480px) {
+    .experience-header-label {
+        font-size: 1.1rem;
+        padding: 1rem 0.75rem;
     }
 
-    .experience-marker-box.right::after,
-    .experience-marker-box.left::after   { width: 0.45rem; }
-    .experience-marker-box.bottom::after,
-    .experience-marker-box.top::after    { height: 0.45rem; }
+    .experience-header-right {
+        gap: 0.4rem;
+        padding: 0 0.5rem;
+    }
 }

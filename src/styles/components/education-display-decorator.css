@@ -101,6 +101,18 @@
     );
 }
 
+/* Small screens: smaller label, tighter markers */
+@media only screen and (max-width: 800px) {
+    .education-college {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .education-year-text {
+        font-size: 1.2rem;
+    }
+}
+
 /* Stack on small screens */
 @media only screen and (max-width: 600px) {
     .education-display-container {

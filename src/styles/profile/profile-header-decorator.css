@@ -27,6 +27,7 @@
     font-size: 2.75rem;
     font-weight: 600;
     text-align: left;
+     white-space: nowrap;   /* added: keeps "> Profile" on one line */
 }
 
 /* Right cell: barcode + marker pushed to the right */
@@ -84,3 +85,38 @@
 .profile-marker-corner.tr { top: 0;    right: 0; border-top-width: 2px;    border-right-width: 2px; }
 .profile-marker-corner.bl { bottom: 0; left: 0;  border-bottom-width: 2px; border-left-width: 2px; }
 .profile-marker-corner.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* Small screens: smaller label, tighter markers */
+@media only screen and (max-width: 800px) {
+    .profile-header-left {
+        flex-basis: 40%;
+    }
+
+    .profile-header-label {
+        font-size: 1.5rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .profile-header-right {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .profile-barcode {
+        font-size: 2rem;
+        max-height: 4.5rem;
+    }
+
+    .profile-marker {
+        --size: 3.25rem;
+        --bracket: 0.7rem;
+    }
+
+    .profile-marker-plus {
+        width: 2rem;
+        height: 2rem;
+        background:
+            linear-gradient(var(--green), var(--green)) center / 100% 4px no-repeat,
+            linear-gradient(var(--green), var(--green)) center / 4px 100% no-repeat;
+    }
+}
