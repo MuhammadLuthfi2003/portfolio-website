@@ -7,6 +7,7 @@ import HomeDisplay from '../components/home/home-display';
 import ProfileDisplay from '../components/profile/profile-display';
 import ExperienceDisplay from '../components/experience/experience-display';
 import ProjectDisplay from '../components/project/project-display';
+import ContactDisplay from '../components/contact/contact-display';
 
 class Home extends React.Component {
     render() {
@@ -21,6 +22,7 @@ class Home extends React.Component {
                         <BarcodeSpacer />
                         <ProjectDisplay />
                         <BarcodeSpacer />
+                        <ContactDisplay />
                     </div>
             </div>
         )
