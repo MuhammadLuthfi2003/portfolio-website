@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/timeline/timeline-entry-decorator.css';
 
 import TiltCard from '../tilt-card';
+import PressButton from '../press-button';
 
 class TimelineEntry extends React.Component {
     constructor(props) {
@@ -41,14 +42,24 @@ class TimelineEntry extends React.Component {
                             <span className="timeline-entry-date">{date}</span>
                         </div>
 
-                        <button
+                        {/* <button
                             className="timeline-entry-toggle"
                             onClick={this.toggle}
                             aria-expanded={open}
                             aria-label={open ? 'Hide details' : 'Show details'}
                         >
                             <span className="timeline-entry-chevron"></span>
-                        </button>
+                        </button> */}
+                        <PressButton
+                            bare
+                            scale={0.85}
+                            className="timeline-entry-toggle"
+                            onClick={this.toggle}
+                            aria-expanded={open}
+                            aria-label={open ? 'Hide details' : 'Show details'}
+                        >
+                            <span className="timeline-entry-chevron"></span>
+                        </PressButton>
                     </div>
 
                     {/* collapsible description */}

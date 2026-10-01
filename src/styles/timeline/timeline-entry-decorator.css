@@ -109,7 +109,7 @@
     background: var(--green);
     border: 2px solid var(--dark);
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    /* transition: background-color 0.3s ease-in-out; */
 }
 
 .timeline-entry-toggle:hover {

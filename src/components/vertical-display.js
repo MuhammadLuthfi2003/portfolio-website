@@ -4,6 +4,7 @@ import "../styles/components/vertical-display-decorator.css";
 import TiltCard from "../components/tilt-card";
 
 import arrowIcon from "../images/icons/About Me Arrow.png";
+import PressButton from "./press-button";
 
 class VerticalDisplay extends React.Component {
     render() {
@@ -24,7 +25,7 @@ class VerticalDisplay extends React.Component {
                     <span className="vertical-display-date">{date}</span>
                 </div>
 
-                <a
+                {/* <a
                     className="vertical-display-button"
                     href={link}
                     target="_blank"
@@ -32,7 +33,8 @@ class VerticalDisplay extends React.Component {
                 >
                     <span className="vertical-display-button-text">{buttonDesc}</span>
                     <img src={arrowIcon} className="vertical-display-button-arrow" alt="" />
-                </a>
+                </a> */}
+                <PressButton link={link} icon={arrowIcon}>{buttonDesc}</PressButton>
             </TiltCard>
         )
     }

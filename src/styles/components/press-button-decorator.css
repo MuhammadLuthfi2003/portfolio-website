@@ -71,6 +71,12 @@
     font-weight: inherit;
 }
 
+.press-button.bare .press-button-text {
+    display: contents;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
 /* ---------- Reduced motion: keep color fades, drop the squish ---------- */
 @media (prefers-reduced-motion: reduce) {
     .press-button,
