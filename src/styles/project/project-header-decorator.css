@@ -108,3 +108,9 @@
         gap: 0.25rem;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .project-header {
+        height: auto;
+    }
+}

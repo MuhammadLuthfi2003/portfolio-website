@@ -88,38 +88,59 @@
 .experience-marker-box.bottom::after { left: 0;   right: 0;  bottom: 0; height: 22%; }
 .experience-marker-box.top::after    { left: 0;   right: 0;  top: 0;    height: 22%; }
 
-/* Small screens: smaller label, tighter markers */
+/* Small screens: left cell fits its text, right cell takes the rest */
 @media only screen and (max-width: 800px) {
     .experience-header-left {
-        flex-basis: 40%;
-        min-width: 0;
+        flex: 0 0 auto;          /* was 40%: now as wide as the label needs */
+        padding: 0.75rem;
     }
 
     .experience-header-label {
+        width: auto;             /* was 100%: don't stretch to the cell */
         font-size: 1.2rem;
         padding: 1.25rem 1rem;
     }
 
     .experience-header-right {
-        gap: 0.75rem;
-        padding: 0 1rem;
+        flex: 1 1 0;             /* fills leftover space, can shrink */
+        gap: 0.5rem;
+        padding: 0 0.75rem;
+        min-width: 0;
     }
 
     .experience-marker {
         --size: 3.25rem;
-        --bracket: 0.7rem;
+        --bracket: 0.6rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .experience-header {
+        height: auto;
+    }
+
+    .experience-marker {
+        --bracket: 0.5rem;
     }
 }
 
 /* Very small phones */
 @media only screen and (max-width: 480px) {
+    .experience-header-left {
+        padding: 0.5rem;
+    }
+
     .experience-header-label {
         font-size: 1.1rem;
         padding: 1rem 0.75rem;
     }
 
     .experience-header-right {
-        gap: 0.4rem;
-        padding: 0 0.5rem;
+        gap: 0.3rem;
+        padding: 0 0.4rem;
+    }
+
+    .experience-marker {
+        --bracket: 0.4rem;
     }
 }
