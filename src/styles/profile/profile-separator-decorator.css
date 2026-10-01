@@ -19,6 +19,7 @@
 
 /* Green label */
 .profile-separator-title {
+    flex: 0 0 auto;
     background: var(--green);
     color: var(--dark);
     font-size: 1em;
@@ -28,18 +29,22 @@
     white-space: nowrap;
 }
 
-/* Row of boxes */
+/* Row of boxes: takes the leftover width and divides it between the boxes */
 .profile-separator-count {
+    flex: 1 1 0;
+    min-width: 0;                 /* lets the row shrink below its content size */
+    height: 2.2em;                /* same height as the label (1.2em + 2 * 0.5em) */
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 0.2em;
 }
 
-/* Box height = label height (1.2em line + 2 * 0.5em padding = 2.2em) */
+/* Boxes grow/shrink to fit, but never get bigger than a square */
 .profile-separator-box {
-    width: 2.2em;
-    height: 2.2em;
-    flex-shrink: 0;
+    flex: 1 1 0;
+    min-width: 3px;
+    max-width: 2.2em;
+    height: 100%;
     border: 2px solid #fff;
     background: var(--dark);
     box-sizing: border-box;
@@ -47,4 +52,45 @@
 
 .profile-separator-box.filled {
     background: #fff;
+}
+
+/* ---------- Tablet: smaller text, thinner borders ---------- */
+@media only screen and (max-width: 900px) {
+    .profile-separator {
+        font-size: 1.2rem;
+        height: 4rem;
+    }
+
+    .profile-separator-box {
+        border-width: 1px;
+    }
+}
+
+/* ---------- Mobile: title on top, boxes on their own row ---------- */
+@media only screen and (max-width: 600px) {
+    .profile-separator {
+        font-size: 1.1rem;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .profile-separator-title {
+        white-space: normal;      /* long titles can wrap instead of overflowing */
+    }
+
+    .profile-separator-count {
+        flex: 1 1 100%;           /* full-width row under the title */
+        height: auto;
+        gap: 2px;
+    }
+
+    /* squares again, sized by however much width is available */
+    .profile-separator-box {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-width: none;
+        min-width: 0;
+    }
 }

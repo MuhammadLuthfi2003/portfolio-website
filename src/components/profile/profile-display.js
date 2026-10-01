@@ -24,7 +24,7 @@ class ProfileDisplay extends React.Component {
                     <ProfileEducation />
                     <ProfileSeparator title="Certifications" count={10} maxCount={22} />
                     <ProfileCertifications />
-                    <ProfileSeparator title="Awards" count={2} maxCount={25} />
+                    <ProfileSeparator title="Awards" count={2} maxCount={22} />
                     <ProfileAwards />
                 </div>
             </div>

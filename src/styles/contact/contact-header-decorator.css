@@ -51,6 +51,10 @@
 
 /* Small screens: smaller label, thinner stripes */
 @media only screen and (max-width: 800px) {
+    .contact-header {
+        height: 6rem;
+    }
+
     .contact-header-left {
         flex-basis: 40%;
     }
@@ -70,7 +74,5 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .contact-header {
-        height: 6rem;
-    }
+
 }

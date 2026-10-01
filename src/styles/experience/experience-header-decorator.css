@@ -90,6 +90,10 @@
 
 /* Small screens: left cell fits its text, right cell takes the rest */
 @media only screen and (max-width: 800px) {
+    .experience-header {
+        height: auto;
+    }
+
     .experience-header-left {
         flex: 0 0 auto;          /* was 40%: now as wide as the label needs */
         padding: 0.75rem;
@@ -115,10 +119,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .experience-header {
-        height: auto;
-    }
-
     .experience-marker {
         --bracket: 0.5rem;
     }
