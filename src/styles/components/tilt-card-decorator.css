@@ -3,7 +3,8 @@
     --tilt-y: 0;          /* -1 (top) to 1 (bottom) */
     --max-tilt: 14deg;
     --lift: -12px;
-    --hover-scale: 1.06;
+    --hover-scale: 1.001;
+    --press-scale: 0.999;
 
     position: relative;
     z-index: 0;
@@ -32,6 +33,22 @@
             calc(var(--tilt-y) * -14px + 22px)
             28px rgba(0, 0, 0, 0.55);
         /* fast while following the cursor */
+        transition:
+            transform 0.12s ease-out,
+            box-shadow 0.12s ease-out;
+    }
+
+        /* pressed: same tilt, but shrunk instead of lifted/enlarged */
+    .tilt-card.pressed:hover {
+        transform:
+            perspective(700px)
+            scale(var(--press-scale))
+            rotateX(calc(var(--tilt-y) * var(--max-tilt) * -1))
+            rotateY(calc(var(--tilt-x) * var(--max-tilt)));
+        box-shadow:
+            calc(var(--tilt-x) * -6px)
+            calc(var(--tilt-y) * -6px + 8px)
+            14px rgba(0, 0, 0, 0.55);
         transition:
             transform 0.12s ease-out,
             box-shadow 0.12s ease-out;

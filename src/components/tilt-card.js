@@ -4,12 +4,15 @@ import '../styles/components/tilt-card-decorator.css';
 class TiltCard extends React.Component {
     constructor(props) {
         super(props);
+        this.state = { pressed: false };
         this.ref = React.createRef();
+
         this.handleMove = this.handleMove.bind(this);
         this.handleLeave = this.handleLeave.bind(this);
+        this.press = this.press.bind(this);
+        this.release = this.release.bind(this);
     }
 
-    // turn the cursor position into -1..1 on both axes (0 = center)
     handleMove(e) {
         const el = this.ref.current;
         if (!el) return;
@@ -28,17 +31,30 @@ class TiltCard extends React.Component {
 
         el.style.setProperty('--tilt-x', 0);
         el.style.setProperty('--tilt-y', 0);
+        this.release(); // dragging off the card while held counts as release
+    }
+
+    press() {
+        this.setState({ pressed: true });
+    }
+
+    release() {
+        this.setState({ pressed: false });
     }
 
     render() {
         const { className = '', children } = this.props;
+        const { pressed } = this.state;
 
         return (
             <div
                 ref={this.ref}
-                className={`tilt-card ${className}`}
+                className={`tilt-card ${pressed ? 'pressed' : ''} ${className}`}
                 onMouseMove={this.handleMove}
                 onMouseLeave={this.handleLeave}
+                onPointerDown={this.press}
+                onPointerUp={this.release}
+                onPointerCancel={this.release}
             >
                 {children}
             </div>
