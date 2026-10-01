@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/components/vertical-display-decorator.css";
 
+import TiltCard from "../components/tilt-card";
+
 import arrowIcon from "../images/icons/About Me Arrow.png";
 
 class VerticalDisplay extends React.Component {
@@ -8,7 +10,7 @@ class VerticalDisplay extends React.Component {
         const {order = 1, image, title, date, buttonDesc, link = "#"} = this.props;
 
         return (
-            <div className="vertical-display">
+            <TiltCard className="vertical-display">
                 <div className="vertical-display-order">
                     <span className="vertical-display-order-text">#{order}</span>
                 </div>
@@ -31,7 +33,7 @@ class VerticalDisplay extends React.Component {
                     <span className="vertical-display-button-text">{buttonDesc}</span>
                     <img src={arrowIcon} className="vertical-display-button-arrow" alt="" />
                 </a>
-            </div>
+            </TiltCard>
         )
     }
 }

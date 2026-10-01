@@ -1,12 +1,14 @@
 import React from 'react';
 import '../styles/components/education-display-decorator.css';
 
+import TiltCard from './tilt-card';
+
 class EducationDisplay extends React.Component {
     render() {
         const { order = 1, icon, college, major, gpa, year } = this.props;
 
         return (
-            <div className='education-display'>
+            <TiltCard className='education-display'>
                 <div className='education-display-container'>
                     <div className='education-order'>
                         <span className='education-order-text'># {order}</span>
@@ -30,7 +32,7 @@ class EducationDisplay extends React.Component {
 
                     <div className='education-stripes'></div>
                 </div>
-            </div>
+            </TiltCard>
         )
     }
 }

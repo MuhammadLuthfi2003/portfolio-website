@@ -7,6 +7,14 @@
     color: var(--dark);
 }
 
+/* wide cards look much more dramatic when tilted, so go gentler */
+.tilt-card.education-display {
+    --max-tilt: 4deg;
+    --hover-scale: 1.02;
+    --lift: -8px;
+}
+
+
 .education-display-container {
     position: relative;
     display: flex;

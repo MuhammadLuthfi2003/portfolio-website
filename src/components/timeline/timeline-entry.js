@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../styles/timeline/timeline-entry-decorator.css';
 
+import TiltCard from '../tilt-card';
+
 class TimelineEntry extends React.Component {
     constructor(props) {
         super(props);
@@ -29,7 +31,7 @@ class TimelineEntry extends React.Component {
                     </div>
                 </div>
 
-                <div className={`timeline-entry-card ${open ? 'open' : ''}`}>
+                <TiltCard className={`timeline-entry-card ${open ? 'open' : ''}`}>
                     <div className="timeline-entry-header">
                         <div className="timeline-entry-stripes"></div>
 
@@ -58,7 +60,7 @@ class TimelineEntry extends React.Component {
                             </p>
                         </div>
                     </div>
-                </div>
+                </TiltCard>
             </div>
         );
     }

@@ -14,6 +14,13 @@
     text-align: left;
 }
 
+/* wide cards look much more dramatic when tilted, so go gentler */
+.tilt-card.vertical-display {
+    --max-tilt: 4deg;
+    --hover-scale: 1.02;
+    --lift: -8px;
+}
+
 /* Green "#1" tag, top-left */
 .vertical-display-order {
     position: absolute;

@@ -2,13 +2,14 @@ import React from 'react';
 import '../styles/project-card-decorator.css';
 
 import arrowIcon from '../images/icons/About Me Arrow.png';
+import TiltCard from './tilt-card'
 
 class ProjectCard extends React.Component {
     render() {
         const { image, title, description, tools = [], link = '#' } = this.props;
 
         return (
-            <div className='project-card'>
+            <TiltCard className='project-card'>
                 <div className='project-card-image'>
                     {image && <img src={image} alt={title + ' Thumbnail'} />}
                 </div>
@@ -36,7 +37,7 @@ class ProjectCard extends React.Component {
                         <img src={arrowIcon} className='project-card-button-arrow' alt='' />
                     </a>
                 </div>
-            </div>
+            </TiltCard>
         )
     }
 }

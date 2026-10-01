@@ -10,6 +10,18 @@
     text-align: left;
 }
 
+/* wide cards look much more dramatic when tilted, so go gentler */
+.tilt-card.timeline-entry-card {
+    --max-tilt: 2deg;
+    --hover-scale: 1.02;
+    --lift: -4px;
+}
+
+.timeline-entry:hover {
+    z-index: 5;
+}
+
+
 /* ---------- Left rail + marker ---------- */
 .timeline-entry-rail {
     flex: 0 0 var(--rail, 3rem);

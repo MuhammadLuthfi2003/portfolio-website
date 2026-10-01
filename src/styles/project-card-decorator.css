@@ -11,6 +11,12 @@
     border: 2px solid #fff;
 }
 
+.tilt-card.project-card {
+    --max-tilt: 4deg;
+    --hover-scale: 1.02;
+    --lift: -8px;
+}
+
 /* Thumbnail */
 .project-card-image {
     width: 100%;
