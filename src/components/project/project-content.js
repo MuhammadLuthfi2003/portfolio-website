@@ -31,6 +31,22 @@ const projects = [
         tools: ['Roblox Studio', 'Lua'],
         link: '#',
     },
+        {
+        id: 4,
+        image: null,
+        title: 'Project Four',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ipsum sed odio fermentum faucibus ut ac quam. Duis lacus augue,',
+        tools: ['Unreal Engine'],
+        link: '#',
+    },
+        {
+        id: 5,
+        image: null,
+        title: 'Project Five',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ipsum sed odio fermentum faucibus ut ac quam. Duis lacus augue,',
+        tools: ['Unity', 'C#'],
+        link: '#',
+    },
 ];
 
 class ProjectContent extends React.Component {
@@ -39,9 +55,53 @@ class ProjectContent extends React.Component {
 
         this.state = {
             activeTag: null, // null = show everything
+            gridMaxHeight: null, // null = no limit (only one row)
         };
 
+        this.gridRef = React.createRef();
         this.toggleTag = this.toggleTag.bind(this);
+        this.measureGrid = this.measureGrid.bind(this);
+    }
+
+        componentDidMount() {
+        this.measureGrid();
+        window.addEventListener('resize', this.measureGrid);
+    }
+
+    componentDidUpdate() {
+        this.measureGrid();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.measureGrid);
+    }
+
+    // if cards wrap onto a 2nd row, limit the grid to the height of 1 row
+    measureGrid() {
+        const grid = this.gridRef.current;
+        if (!grid) return;
+
+        const cards = Array.from(grid.children).filter(
+            (el) => !el.classList.contains('project-empty')
+        );
+
+        let next = null;
+
+        if (cards.length > 1) {
+            const firstTop = cards[0].offsetTop;
+            const hasSecondRow = cards.some((c) => c.offsetTop > firstTop);
+
+            if (hasSecondRow) {
+                const style = window.getComputedStyle(grid);
+                const padding =
+                    parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+                next = cards[0].offsetHeight + padding;
+            }
+        }
+
+        if (next !== this.state.gridMaxHeight) {
+            this.setState({ gridMaxHeight: next });
+        }
     }
 
     // clicking the active tag again clears the filter
@@ -90,7 +150,15 @@ class ProjectContent extends React.Component {
                     </div>
                 </div>
 
-                <div className="project-grid">
+                <div
+                    className="project-grid"
+                    ref={this.gridRef}
+                    style={
+                        this.state.gridMaxHeight
+                            ? { maxHeight: this.state.gridMaxHeight }
+                            : undefined
+                    }
+                >
                     {visibleProjects.map((project) => (
                         <ProjectCard
                             key={project.id}

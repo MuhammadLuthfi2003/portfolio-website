@@ -66,6 +66,7 @@
         linear-gradient(to right,  var(--line) 1px, transparent 1px),
         linear-gradient(to bottom, var(--line) 1px, transparent 1px);
     background-size: 3rem 3rem;
+    overflow-y: auto;
 }
 
 .project-empty {
