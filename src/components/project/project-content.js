@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/project/project-content-decorator.css';
 
 import ProjectCard from '../project-card';
+import PressButton from '../press-button';
 
 // import ganyangImage from '../../images/projects/Ganyang Setan Alas.png';
 
@@ -137,15 +138,16 @@ class ProjectContent extends React.Component {
 
                     <div className="project-filter-tags">
                         {tags.map((tag) => (
-                            <button
+                            <PressButton
                                 key={tag}
-                                type="button"
+                                bare
+                                scale={0.9}
                                 className={`project-filter-tag ${activeTag === tag ? 'active' : ''}`}
                                 aria-pressed={activeTag === tag}
                                 onClick={() => this.toggleTag(tag)}
                             >
                                 {tag}
-                            </button>
+                            </PressButton>
                         ))}
                     </div>
                 </div>

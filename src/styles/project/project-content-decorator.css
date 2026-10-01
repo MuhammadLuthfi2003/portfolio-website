@@ -41,6 +41,11 @@
     transition: all 0.3s ease-in-out;
 }
 
+.project-filter-tag .press-button-text {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
 .project-filter-tag:hover {
     background: rgba(145, 224, 26, 0.2);
 }

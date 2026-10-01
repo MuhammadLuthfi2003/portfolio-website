@@ -4,6 +4,8 @@ import '../styles/project-card-decorator.css';
 import arrowIcon from '../images/icons/About Me Arrow.png';
 import TiltCard from './tilt-card'
 
+import PressButton from './press-button';
+
 class ProjectCard extends React.Component {
     render() {
         const { image, title, description, tools = [], link = '#' } = this.props;
@@ -27,7 +29,7 @@ class ProjectCard extends React.Component {
                 <div className='project-card-footer'>
                     <div className='project-card-stripes'></div>
 
-                    <a
+                    {/* <a
                         className='project-card-button'
                         href={link}
                         target='_blank'
@@ -35,7 +37,8 @@ class ProjectCard extends React.Component {
                     >
                         <span className='project-card-button-text'>See More</span>
                         <img src={arrowIcon} className='project-card-button-arrow' alt='' />
-                    </a>
+                    </a> */}
+                    <PressButton link={link} icon={arrowIcon}>See More</PressButton>
                 </div>
             </TiltCard>
         )

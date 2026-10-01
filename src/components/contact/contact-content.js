@@ -8,6 +8,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import arrowIcon from '../../images/icons/About Me Arrow.png';
 
+import TiltCard from '../tilt-card';
+
 // Add or reorder contacts here, the list renders from this array.
 const contacts = [
     { label: 'LinkedIn', icon: faLinkedin, link: 'https://www.linkedin.com/in/muhluthfiar/' },
@@ -22,19 +24,20 @@ class ContactContent extends React.Component {
             <div className='contact-content'>
                 <div className='contact-links'>
                     {contacts.map((contact) => (
-                        <a
-                            key={contact.label}
-                            className='contact-link'
-                            href={contact.link}
-                            target={contact.link.startsWith('mailto:') ? undefined : '_blank'}
-                            rel='noopener noreferrer'
-                        >
-                            <FontAwesomeIcon icon={contact.icon} className='contact-link-icon' />
-                            <span className='contact-link-label'>{contact.label}</span>
-                            <span className='contact-link-arrow'>
-                                <img src={arrowIcon} alt='' />
-                            </span>
-                        </a>
+                        <TiltCard key={contact.label} className='contact-link-tilt'>
+                            <a
+                                className='contact-link'
+                                href={contact.link}
+                                target={contact.link.startsWith('mailto:') ? undefined : '_blank'}
+                                rel='noopener noreferrer'
+                            >
+                                <FontAwesomeIcon icon={contact.icon} className='contact-link-icon' />
+                                <span className='contact-link-label'>{contact.label}</span>
+                                <span className='contact-link-arrow'>
+                                    <img src={arrowIcon} alt='' />
+                                </span>
+                            </a>
+                        </TiltCard>
                     ))}
                 </div>
 

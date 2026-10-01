@@ -8,7 +8,8 @@
     position: relative;
     z-index: 0;
     transform: perspective(700px);
-    transform-style: preserve-3d;
+    /* transform-style: preserve-3d; */
+    backface-visibility: hidden;       /*stops edge flicker while rotating */
     will-change: transform;
     /* slow, springy settle when the mouse leaves */
     transition:

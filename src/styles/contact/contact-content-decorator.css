@@ -20,6 +20,19 @@
     text-align: left;
 }
 
+.tilt-card.contact-link-tilt {
+    border-radius: 0.5rem;   /* so the shadow follows the pill's rounded corners */
+
+    --max-tilt: 8deg;
+    --hover-scale: 1.04;
+    --lift: -5px;
+
+    --shadow-shift: 5px;
+    --shadow-drop: 8px;
+    --shadow-blur: 14px;
+    --shadow-opacity: 0.45;
+}
+
 /* ---------- Link pills (left) ---------- */
 .contact-links {
     grid-column: 3 / span 5;
