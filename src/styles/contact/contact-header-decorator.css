@@ -82,7 +82,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-
+    .contact-header-left {
+        flex-basis: 80%;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -285,7 +285,7 @@
     }
 
     /* Decorations re-placed so they stay inside the 9-column grid */
-    .floating-plus { width: 36px; height: 36px; }
+    .floating-plus { width: 30px; height: 30px; }
     .floating-plus.corner         { grid-column: 9; grid-row: 2; }
     .floating-plus.random-1       { grid-column: 1; grid-row: 5; }
     .floating-plus.contact        { grid-column: 9; grid-row: 8; }
@@ -375,7 +375,7 @@
     }
 
     /* Decorations re-placed so they stay inside the 9-column grid */
-    .floating-plus { width: 30px; height: 30px; }
+    .floating-plus { width: 20px; height: 20px; }
     .floating-plus.corner         { grid-column: 9; grid-row: 2; }
     .floating-plus.random-1       { grid-column: 1; grid-row: 5; }
     .floating-plus.contact        { grid-column: 5; grid-row: 12; }

@@ -252,3 +252,21 @@
         left: 10%;
     }
 }
+
+@media only screen and (max-width: 600px)
+{
+    .random-1 {
+        top: 5%;
+        left: 10%;
+    }
+
+    .random-2 {
+        top: 20%;
+        left: 85%;
+    }
+
+    .random-3 {
+        top: 85%;
+        left: 10%;
+    }
+}

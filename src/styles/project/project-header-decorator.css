@@ -123,5 +123,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-
+    .project-header-left {
+        flex-basis: 60%;
+    }
 }

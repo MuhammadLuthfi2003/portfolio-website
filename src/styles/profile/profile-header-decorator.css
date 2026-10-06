@@ -126,5 +126,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-
+    .profile-header-left {
+        flex-basis: 60%;
+    }
 }

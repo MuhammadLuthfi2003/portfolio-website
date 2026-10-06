@@ -25,15 +25,15 @@ class HomeDisplay extends React.Component {
                                 />
                             </text>
                         </div>
-                        <FloatingPlus className="corner" />
-                        <FloatingPlus className="corner-bottom" rotateDirection="ccw" delay={1} />
-                        <FloatingPlus className="random-1" amplitude={12} floatDuration={4} rotateDuration={12} delay={2} />
+                        <FloatingPlus className="home-plus corner" />
+                        <FloatingPlus className="home-plus corner-bottom" rotateDirection="ccw" delay={1} />
+                        <FloatingPlus className="home-plus random-1" amplitude={12} floatDuration={4} rotateDuration={12} delay={2} />
                         <div className="bracket tl"></div>
                         <div className="bracket random-1"></div>
                         <div className="title-block">
                             <div className="bracket title-1"></div>
                             <div className="bracket title-2"></div>
-                            <FloatingPlus className="programmer" rotateDuration={5} />
+                            <FloatingPlus className="home-plus programmer" rotateDuration={5} />
                             <text className="title-text">
                                 <TypewriterText
                                     className="typewriter-title"
@@ -45,7 +45,7 @@ class HomeDisplay extends React.Component {
                             </text>
                         </div>
 
-                        <FloatingPlus className="contact" rotateDirection="ccw" delay={0.5} />
+                        <FloatingPlus className="home-plus contact" rotateDirection="ccw" delay={0.5} />
                         <div className="bracket contact"></div>
                         <div className="contact-bar">
                             <span className="contact-label">Contact Me</span>
