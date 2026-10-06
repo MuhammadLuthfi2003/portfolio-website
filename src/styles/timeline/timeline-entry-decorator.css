@@ -78,12 +78,21 @@
 }
 
 .timeline-entry-stripes {
+    --stripe-shift: calc(20px / cos(30deg));   /* ≈ 23.09px */
+
     position: absolute;
     top: 0;
     left: 0.5rem;
     bottom: 0;
     width: 1.25rem;
     background: repeating-linear-gradient(-30deg, #d6d6d6 0 10px, #fff 10px 20px);
+    background-size: 100% var(--stripe-shift);
+    animation: timeline-stripes-scroll 1.5s linear infinite;
+}
+
+@keyframes timeline-stripes-scroll {
+    from { background-position-y: 0; }
+    to   { background-position-y: var(--stripe-shift); }
 }
 
 .timeline-entry-info {
@@ -171,4 +180,10 @@
 
 @media only screen and (max-width: 600px) {
     .timeline-entry-title { font-size: 1.15rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .timeline-entry-stripes {
+        animation: none;
+    }
 }

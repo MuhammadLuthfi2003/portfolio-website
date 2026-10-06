@@ -108,18 +108,27 @@
 
 /* Hazard stripes on the right edge */
 .vertical-display::after {
+    --stripe-shift: calc(20px / cos(30deg));   /* ≈ 23.09px */
+
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     width: 1.75rem;
     height: 100%;
-    margin-right: 0.5rem;          /* white gap under the stripes */
+    margin-right: 0.5rem;
     background: repeating-linear-gradient(
         -30deg,
         #d6d6d6 0 10px,
         #fff 10px 20px
     );
+    background-size: 100% var(--stripe-shift);
+    animation: vertical-stripes-scroll 1.5s linear infinite;
+}
+
+@keyframes vertical-stripes-scroll {
+    from { background-position-y: 0; }
+    to   { background-position-y: var(--stripe-shift); }
 }
 
 /* Small screens: stack the content */
@@ -137,5 +146,11 @@
 
     .vertical-display-button {
         width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vertical-display::after {
+        animation: none;
     }
 }

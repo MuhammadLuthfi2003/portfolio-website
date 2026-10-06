@@ -96,17 +96,26 @@
 
 /* Hazard stripes along the right edge */
 .education-stripes {
+    --stripe-shift: calc(20px / cos(30deg));   /* ≈ 23.09px */
+
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     width: 1.75rem;
-    margin-right: 0.5rem;          /* white gap after the stripes */
+    margin-right: 0.5rem;
     background: repeating-linear-gradient(
         -30deg,
         #d6d6d6 0 10px,
         #fff 10px 20px
     );
+    background-size: 100% var(--stripe-shift);
+    animation: education-stripes-scroll 1.5s linear infinite;
+}
+
+@keyframes education-stripes-scroll {
+    from { background-position-y: 0; }
+    to   { background-position-y: var(--stripe-shift); }
 }
 
 /* Small screens: smaller label, tighter markers */
@@ -130,5 +139,11 @@
     .education-year {
         flex-basis: 100%;
         padding-right: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .education-stripes {
+        animation: none;
     }
 }
