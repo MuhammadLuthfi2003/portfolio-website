@@ -41,12 +41,24 @@
 }
 
 .contact-header-stripes {
+    --stripe-w: 1.75rem;                    /* green bar width */
+    --stripe-tile: calc(var(--stripe-w) * 2);
+    --stripe-speed: 1.5s;                   /* lower = faster */
+
     flex: 1;
     background: repeating-linear-gradient(
-        115deg,                     /* lowering this makes the stripes flatter, raising it makes them steeper */
-        var(--green) 0 1.75rem,     /* green bar width */
-        var(--dark) 1.75rem 3.5rem  /* dark gap width */
+        115deg,
+        var(--green) 0 var(--stripe-w),
+        var(--dark) var(--stripe-w) var(--stripe-tile)
     );
+    /* tile is a square of the pattern's repeat length so the loop is exact */
+    background-size: calc(var(--stripe-tile) / sin(115deg)) 100%;
+    animation: contact-stripes-scroll var(--stripe-speed) linear infinite;
+}
+
+@keyframes contact-stripes-scroll {
+    from { background-position-x: 0; }
+    to   { background-position-x: calc(var(--stripe-tile) / sin(115deg)); }
 }
 
 /* Small screens: smaller label, thinner stripes */
@@ -65,14 +77,16 @@
     }
 
     .contact-header-stripes {
-        background: repeating-linear-gradient(
-            115deg,
-            var(--green) 0 1rem,
-            var(--dark) 1rem 2rem
-        );
+        --stripe-w: 1rem;
     }
 }
 
 @media only screen and (max-width: 600px) {
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-header-stripes {
+        animation: none;
+    }
 }
