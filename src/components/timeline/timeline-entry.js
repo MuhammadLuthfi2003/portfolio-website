@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/timeline/timeline-entry-decorator.css';
 
-import TiltCard from '../tilt-card';
+import HoverCard from '../hover-card';
 import PressButton from '../press-button';
 
 class TimelineEntry extends React.Component {
@@ -32,7 +32,7 @@ class TimelineEntry extends React.Component {
                     </div>
                 </div>
 
-                <TiltCard className={`timeline-entry-card ${open ? 'open' : ''}`}>
+                <HoverCard className={`timeline-entry-card ${open ? 'open' : ''}`}>
                     <div className="timeline-entry-header">
                         <div className="timeline-entry-stripes"></div>
 
@@ -71,7 +71,7 @@ class TimelineEntry extends React.Component {
                             </p>
                         </div>
                     </div>
-                </TiltCard>
+                </HoverCard>
             </div>
         );
     }

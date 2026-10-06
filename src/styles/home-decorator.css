@@ -116,7 +116,7 @@
 }
 
 /* Green "+" markers, made from two gradients */
-.plus {
+/* .plus {
   justify-self: center;
   align-self: center;
   width: 52px;
@@ -124,24 +124,31 @@
   background:
     linear-gradient(#91e01a, #91e01a) center / 100% 8px no-repeat,
     linear-gradient(#91e01a, #91e01a) center / 8px 100% no-repeat;
+} */
+
+/* Green "+" markers, made from two gradients */
+/* Pluses: the component handles the look, this just centers them in their grid cell */
+.floating-plus {
+    justify-self: center;
+    align-self: center;
 }
 
-.plus.corner {
+.floating-plus.corner {
   grid-column: 16;
   grid-row: 2;
 }
 
-.plus.corner-bottom {
+.floating-plus.corner-bottom {
   grid-column: 1;
   grid-row: 8;
 }
 
-.plus.programmer {
+.floating-plus.programmer {
   grid-column: 16;
   grid-row: 1;
 }
 
-.plus.random-1 {
+.floating-plus.random-1 {
   grid-column: 11;
   grid-row: 7;
 }
@@ -272,11 +279,11 @@
     }
 
     /* Decorations re-placed so they stay inside the 9-column grid */
-    .plus { width: 36px; height: 36px; }
-    .plus.corner         { grid-column: 9; grid-row: 2; }
-    .plus.random-1       { grid-column: 1; grid-row: 5; }
-    .plus.contact        { grid-column: 9; grid-row: 8; }
-    .plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; }
+    .floating-plus { width: 36px; height: 36px; }
+    .floating-plus.corner         { grid-column: 9; grid-row: 2; }
+    .floating-plus.random-1       { grid-column: 1; grid-row: 5; }
+    .floating-plus.contact        { grid-column: 9; grid-row: 8; }
+    .floating-plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; }
 
     .bracket.random-1    { grid-column: 9; grid-row: 1; }
     .bracket.contact     { grid-column: 9; grid-row: 7; }
@@ -362,12 +369,12 @@
     }
 
     /* Decorations re-placed so they stay inside the 9-column grid */
-    .plus { width: 30px; height: 30px; }
-    .plus.corner         { grid-column: 9; grid-row: 2; }
-    .plus.random-1       { grid-column: 1; grid-row: 5; }
-    .plus.contact        { grid-column: 5; grid-row: 12; }
-    .plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; }
-    .plus.corner-bottom   { grid-column: 3; grid-row: 7; }
+    .floating-plus { width: 30px; height: 30px; }
+    .floating-plus.corner         { grid-column: 9; grid-row: 2; }
+    .floating-plus.random-1       { grid-column: 1; grid-row: 5; }
+    .floating-plus.contact        { grid-column: 5; grid-row: 12; }
+    .floating-plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; }
+    .floating-plus.corner-bottom   { grid-column: 3; grid-row: 7; }
 
     .bracket {
       width: 30px;
