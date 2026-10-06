@@ -1,6 +1,7 @@
 .project-display {
     width: 100vw;
-    height: 95vh;                 /* same as .home-display */
+    min-height: 92vh;             /* same as .home-display, but can grow */
+    padding: 4.6vh 0;             /* keeps the home section's top/bottom margins, even when it grows */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,22 +10,21 @@
 
 .project-display-container {
     width: 95%;                   /* same as .home-display-inner */
-    height: 90%;
+    min-height: calc(92vh * 0.9); /* same height as the home box, grows with more entries */
     display: flex;
     flex-direction: column;
     border: 3px solid white;
-    overflow: hidden;
 }
 
-/* Tablet / mobile: let the page scroll normally instead */
+/* Tablet / mobile: no forced height, just let content flow */
 @media only screen and (max-width: 1000px) {
     .project-display {
-        height: auto;
+        min-height: 0;
+        padding: 0;
         margin-bottom: 2rem;
     }
 
     .project-display-container {
-        height: auto;
-        overflow: visible;
+        min-height: 0;
     }
 }

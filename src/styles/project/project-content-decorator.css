@@ -4,8 +4,7 @@
     --line: rgba(255, 255, 255, 0.12);
 
     width: 100%;
-    flex: 1 1 0;                  /* take the leftover height under the header */
-    min-height: 0;                /* required so the grid can shrink and scroll */
+    flex: 1 1 auto;               /* fills the leftover height of the container, so the grid backdrop reaches the bottom */
     display: flex;
     flex-direction: column;
     background-color: var(--dark);
@@ -65,19 +64,18 @@
 
 /* ---------- Card grid (with the same grid-paper backdrop as the hero) ---------- */
 .project-grid {
-    flex: 1 1 0;
-    min-height: 0;
-    align-content: start;         /* rows keep their natural height, don't stretch */
+    flex: 1 1 auto;
+    align-content: start;         /* rows keep their natural height */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;                    /* was 2rem: more room between entries */
-    padding: 3rem;
+    gap: 3rem;                    /* room between entries */
+    padding: 2.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     background-image:
         linear-gradient(to right,  var(--line) 1px, transparent 1px),
         linear-gradient(to bottom, var(--line) 1px, transparent 1px);
     background-size: 3rem 3rem;
-    overflow-y: auto;
+    /* no overflow-y, no max-height: the section just gets taller */
 }
 
 .project-empty {
@@ -90,8 +88,6 @@
 @media only screen and (max-width: 1000px) {
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
-        flex: none;
-        overflow-y: visible;      /* page scrolls on small screens */
     }
 }
 
