@@ -8,7 +8,7 @@ import ExperienceTimeline from './experience-timeline';
 class ExperienceDisplay extends React.Component {
     render() {
         return (
-            <div className='experience-display'>
+            <div className='experience-display' id='experience-display'>
                 <div className='experience-display-container'>
                     <ExperienceHeader />
                     <ExperienceTimeline />

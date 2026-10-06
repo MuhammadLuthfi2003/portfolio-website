@@ -12,16 +12,16 @@ import ContactDisplay from '../components/contact/contact-display';
 class Home extends React.Component {
     render() {
         return (
-            <div className='container'>
+            <div className='container' id='home'>
                     <div className='content'>
                         <HomeDisplay />
-                        <BarcodeSpacer />
+                        <BarcodeSpacer componentId="profile" />
                         <ProfileDisplay />
-                        <BarcodeSpacer />
+                        <BarcodeSpacer componentId="experience" />
                         <ExperienceDisplay />
-                        <BarcodeSpacer />
+                        <BarcodeSpacer componentId="project" />
                         <ProjectDisplay />
-                        <BarcodeSpacer />
+                        <BarcodeSpacer componentId="contact" />
                         <ContactDisplay />
                     </div>
             </div>

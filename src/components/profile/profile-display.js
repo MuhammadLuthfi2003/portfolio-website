@@ -13,7 +13,7 @@ import ProfileEducation from './profile-education';
 class ProfileDisplay extends React.Component {
     render() {
         return (
-            <div className='profile-display'>
+            <div className='profile-display' id='profile-display'>
                 <div className='profile-display-container'>
 
                     <ProfileHeader />

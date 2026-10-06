@@ -11,7 +11,7 @@ import TypewriterText from '../typewriter-text';
 class HomeDisplay extends React.Component {
     render() {
         return (
-            <div className='home-display'>
+            <div className='home-display' id='home-display'>
                 <div className='home-display-inner'>
 
                     <div className="hero">

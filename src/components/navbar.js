@@ -1,7 +1,4 @@
 import React from 'react';
-import {
-    Link
-  } from "react-router-dom";
 
 import '../styles/navbar-deco.css';
 import aboutArrow from '../images/icons/About Me Arrow.png';
@@ -45,19 +42,24 @@ class Navbar extends React.Component {
                 <div className={`navbar-links ${open ? 'active' : ''}`}>
                     <ul>
                         <li>
-                            <Link to='/' className='navbar-links-dir' onClick={this.closeNav}>Home</Link>
+                            {/* <Link to='/' className='navbar-links-dir' onClick={this.closeNav}>Home</Link> */}
+                            <a href='#home' className='navbar-links-dir' onClick={this.closeNav}>Home</a>
                         </li>
                         <li className="navbar-spacer">/</li>
                         <li>
-                            <Link to='/about' className='navbar-links-dir' onClick={this.closeNav}>About</Link>
+                            <a href='#profile' className='navbar-links-dir' onClick={this.closeNav}>Profile</a>
                         </li>
                         <li className="navbar-spacer">/</li>
                         <li>
-                            <Link to='/project' className='navbar-links-dir' onClick={this.closeNav}>Projects</Link>
+                            <a href='#experience' className='navbar-links-dir' onClick={this.closeNav}>Experience</a>
+                        </li>
+                        <li className="navbar-spacer">/</li>
+                        <li>
+                            <a href='#project' className='navbar-links-dir' onClick={this.closeNav}>Projects</a>
                         </li>
                         <li className="navbar-spacer">/</li>
                         <li className="navbar-contact">
-                            <Link to='/contact' className='navbar-contact-dir' onClick={this.closeNav}>Contact Me</Link>
+                            <a href='#contact' className='navbar-contact-dir' onClick={this.closeNav}>Contact Me</a>
                             <img src={aboutArrow} className="navbar-arrow" alt="aboutArrow"></img>
                         </li>
                     </ul>

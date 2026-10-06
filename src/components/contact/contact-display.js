@@ -8,7 +8,7 @@ import ContactContent from './contact-content';
 class ContactDisplay extends React.Component {
     render() {
         return (
-            <div className='contact-display'>
+            <div className='contact-display' id='contact-display'>
                 <div className='contact-display-container'>
                     <ContactHeader />
                     <ContactContent />

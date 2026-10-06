@@ -9,7 +9,7 @@ import ProjectContent from './project-content';
 class ProjectDisplay extends React.Component {
     render() {
         return (
-            <div className='project-display'>
+            <div className='project-display' id='project-display'>
                 <div className='project-display-container'>
                     <ProjectHeader angle={30}/>
                     <ProjectContent />
