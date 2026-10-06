@@ -111,6 +111,10 @@
         padding: 1.25rem 1rem;
     }
 
+    .project-header-left {
+        flex-basis: 45%;
+    }
+
     .project-header-right {
         --bracket: 0.8rem;
         --inset: 0.5rem;

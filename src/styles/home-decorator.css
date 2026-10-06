@@ -285,11 +285,12 @@
     }
 
     /* Decorations re-placed so they stay inside the 9-column grid */
-    .floating-plus { width: 30px; height: 30px; }
-    .floating-plus.corner         { grid-column: 9; grid-row: 2; }
-    .floating-plus.random-1       { grid-column: 1; grid-row: 5; }
-    .floating-plus.contact        { grid-column: 9; grid-row: 8; }
-    .floating-plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; }
+    .floating-plus { --plus-size: 36px; }
+    .floating-plus.corner         { grid-column: 9; grid-row: 2; --plus-size: 36px;}
+    .floating-plus.random-1       { grid-column: 1; grid-row: 5; --plus-size: 36px;}
+    .floating-plus.contact        { grid-column: 9; grid-row: 8; --plus-size: 36px;}
+    .floating-plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; --plus-size: 36px;}
+    .floating-plus.corner-bottom   { --plus-size: 36px;}
 
     .bracket.random-1    { grid-column: 9; grid-row: 1; }
     .bracket.contact     { grid-column: 9; grid-row: 7; }
@@ -375,12 +376,12 @@
     }
 
     /* Decorations re-placed so they stay inside the 9-column grid */
-    .floating-plus { width: 20px; height: 20px; }
-    .floating-plus.corner         { grid-column: 9; grid-row: 2; }
-    .floating-plus.random-1       { grid-column: 1; grid-row: 5; }
-    .floating-plus.contact        { grid-column: 5; grid-row: 12; }
-    .floating-plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; }
-    .floating-plus.corner-bottom   { grid-column: 3; grid-row: 7; }
+    .floating-plus { --plus-size: 20px; }
+    .floating-plus.corner         { grid-column: 9; grid-row: 2; --plus-size: 30px;}
+    .floating-plus.random-1       { grid-column: 1; grid-row: 5; --plus-size: 30px;}
+    .floating-plus.contact        { grid-column: 5; grid-row: 12; --plus-size: 30px;}
+    .floating-plus.programmer     { grid-column: 5; grid-row: 1; justify-self: end; align-self: start; --plus-size: 30px;}
+    .floating-plus.corner-bottom   { grid-column: 3; grid-row: 7; --plus-size: 30px;}
 
     .bracket {
       width: 30px;

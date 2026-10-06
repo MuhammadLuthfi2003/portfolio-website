@@ -77,31 +77,39 @@
     }
 }
 
-/* ---------- Mobile: title on top, boxes on their own row ---------- */
+/* ---------- Mobile: title and boxes stay on one row, extra boxes are hidden ---------- */
 @media only screen and (max-width: 600px) {
     .profile-separator {
-        font-size: 1.1rem;
-        height: auto;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        height: 4rem;
+        flex-wrap: nowrap;          /* keep everything on one row */
+        gap: 0.4em;
+        padding: 0 0.75rem;
     }
 
     .profile-separator-title {
-        white-space: normal;      /* long titles can wrap instead of overflowing */
+        white-space: nowrap;
     }
 
     .profile-separator-count {
-        flex: 1 1 100%;           /* full-width row under the title */
-        height: auto;
-        gap: 2px;
+        flex: 1 1 0;
+        min-width: 0;
+        height: 2.2em;
+
+        /* squares are a fixed size, as many as fit are shown, the rest are clipped */
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 2.2em;
+        grid-template-rows: 100%;
+        gap: 0.2em;
+        overflow: hidden;
     }
 
-    /* squares again, sized by however much width is available */
     .profile-separator-box {
-        height: auto;
-        aspect-ratio: 1 / 1;
+        height: 100%;
+        width: 100%;
         max-width: none;
         min-width: 0;
+        border-width: 1px;
     }
 }
