@@ -62,14 +62,29 @@
 
 /* Hazard stripes along the bottom */
 .horizontal-display-container::after {
+    --stripe-shift: calc(20px / sin(60deg));   /* ≈ 23.09px */
+
     content: "";
     width: 100%;
     height: 1.75rem;
     flex-shrink: 0;
-    margin-bottom: 0.5rem;          /* white gap under the stripes */
+    margin-bottom: 0.5rem;
     background: repeating-linear-gradient(
         -60deg,
         #d6d6d6 0 10px,
         #fff 10px 20px
     );
+    background-size: var(--stripe-shift) 100%;
+    animation: horizontal-stripes-scroll 1.5s linear infinite;
+}
+
+@keyframes horizontal-stripes-scroll {
+    from { background-position-x: 0; }
+    to   { background-position-x: var(--stripe-shift); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .horizontal-display-container::after {
+        animation: none;
+    }
 }

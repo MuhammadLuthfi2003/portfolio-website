@@ -67,6 +67,8 @@
 }
 
 .project-card-stripes {
+    --stripe-shift: calc(20px / sin(60deg));   /* ≈ 23.09px */
+
     flex: 1;
     min-height: 2.5rem;
     background: repeating-linear-gradient(
@@ -74,6 +76,19 @@
         #d6d6d6 0 10px,
         #fff 10px 20px
     );
+    background-size: var(--stripe-shift) 100%;
+    animation: project-stripes-scroll 1.5s linear infinite;
+}
+
+@keyframes project-stripes-scroll {
+    from { background-position-x: 0; }
+    to   { background-position-x: var(--stripe-shift); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card-stripes {
+        animation: none;
+    }
 }
 
 .project-card-button {
