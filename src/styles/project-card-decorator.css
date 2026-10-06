@@ -20,7 +20,7 @@
 /* Thumbnail */
 .project-card-image {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 9;         /* was 16 / 9 */
     background-color: var(--dark);
     overflow: hidden;
 }

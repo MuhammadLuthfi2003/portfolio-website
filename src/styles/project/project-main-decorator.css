@@ -1,17 +1,30 @@
 .project-display {
     width: 100vw;
-    height: auto;
+    height: 95vh;                 /* same as .home-display */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
 }
 
 .project-display-container {
-    width: 95%;
+    width: 95%;                   /* same as .home-display-inner */
     height: 90%;
     display: flex;
     flex-direction: column;
     border: 3px solid white;
+    overflow: hidden;
+}
+
+/* Tablet / mobile: let the page scroll normally instead */
+@media only screen and (max-width: 1000px) {
+    .project-display {
+        height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .project-display-container {
+        height: auto;
+        overflow: visible;
+    }
 }
