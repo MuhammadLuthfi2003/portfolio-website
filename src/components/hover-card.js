@@ -11,11 +11,11 @@ class HoverCard extends React.Component {
     }
 
     press() {
-        this.setState({ pressed: true });
+        //this.setState({ pressed: true });
     }
 
     release() {
-        this.setState({ pressed: false });
+        //this.setState({ pressed: false });
     }
 
     render() {
