@@ -18,6 +18,39 @@
     background-size: calc(100% / var(--column)) calc(100% / var(--row));
     border-top: 1px solid rgba(255, 255, 255, 0.35);
     text-align: left;
+    position: relative;
+}
+
+/* Decoration layer: out of flow, so neither grid nor flex layout sees it */
+.contact-decor {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;        /* rotating/floating pluses can never cause sideways scroll */
+    pointer-events: none;    /* clicks pass through to the links */
+}
+
+.contact-plus {
+    position: absolute;
+}
+
+.random-1 {
+    top: 12%;
+    left: 55%;
+}
+
+.random-2 {
+    top: 70%;
+    left: 48%;
+}
+
+.random-3 {
+    top: 40%;
+    left: 90%;
+}
+
+.hide-mobile {
+    top: 82%;
+    left: 8%;
 }
 
 .tilt-card.contact-link-tilt {
@@ -193,5 +226,29 @@
         padding: 0;
         font-size: 0.8rem;
         text-align: right;
+    }
+
+    .contact-plus.hide-mobile {
+        display: none;
+    }
+
+    .contact-plus {
+        width: 36px;
+        height: 36px;
+    }
+
+    .random-1 {
+        top: 10%;
+        left: 10%;
+    }
+
+    .random-2 {
+        top: 15%;
+        left: 85%;
+    }
+
+    .random-3 {
+        top: 85%;
+        left: 10%;
     }
 }

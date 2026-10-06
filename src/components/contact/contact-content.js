@@ -11,6 +11,8 @@ import arrowIcon from '../../images/icons/About Me Arrow.png';
 import TiltCard from '../tilt-card';
 import TypewriterText from '../typewriter-text';
 
+import FloatingPlus from '../floating-plus';
+
 // Add or reorder contacts here, the list renders from this array.
 const contacts = [
     { label: 'LinkedIn', icon: faLinkedin, link: 'https://www.linkedin.com/in/muhluthfiar/' },
@@ -23,6 +25,13 @@ class ContactContent extends React.Component {
     render() {
         return (
             <div className='contact-content'>
+                <div className='contact-decor' aria-hidden='true'>
+                    <FloatingPlus className='contact-plus random-1' delay={0} />
+                    <FloatingPlus className='contact-plus random-2' rotateDirection='ccw' delay={1.5} />
+                    <FloatingPlus className='contact-plus random-3' floatDuration={4} delay={0.8} />
+                    <FloatingPlus className='contact-plus hide-mobile' delay={2} />
+                </div>
+
                 <div className='contact-links'>
                     {contacts.map((contact) => (
                         <TiltCard key={contact.label} className='contact-link-tilt'>
@@ -56,6 +65,7 @@ class ContactContent extends React.Component {
                 <span className='contact-copyright'>
                     Copyright 2026 By Muhammad Luthfi Azzahra Rammadhani
                 </span>
+
             </div>
         )
     }
