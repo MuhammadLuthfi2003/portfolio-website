@@ -31,8 +31,43 @@ function Chevron({ filled, angle = 40, thickness = 16 }) {
 }
 
 class ProjectHeader extends React.Component {
+    constructor(props) {
+        super(props);
+
+        const { count = 4 } = props;
+
+        // index of the most recently activated chevron (the "head" of the lit group)
+        this.state = { head: count - 1 };
+        this.timer = null;
+        this.tick = this.tick.bind(this);
+    }
+
+    componentDidMount() {
+        const { interval = 400 } = this.props;
+
+        // respect reduced motion: leave the chevrons static
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return;
+
+        this.timer = setInterval(this.tick, interval);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    // activate the next chevron; after the last one it wraps to the first
+    tick() {
+        const { maxCount = 12 } = this.props;
+        this.setState((prev) => ({ head: (prev.head + 1) % maxCount }));
+    }
+
     render() {
         const { count = 4, maxCount = 12, angle = 40, thickness = 16 } = this.props;
+        const { head } = this.state;
+
+        // chevron i is lit if it's within `count` steps behind the head (wrapping around)
+        const isFilled = (i) => (head - i + maxCount) % maxCount < count;
 
         return (
             <div className='project-header'>
@@ -58,7 +93,7 @@ class ProjectHeader extends React.Component {
 
                     <div className='project-chevrons'>
                         {Array.from({ length: maxCount }, (_, i) => (
-                            <Chevron key={i} filled={i < count} angle={angle} thickness={thickness} />
+                            <Chevron key={i} filled={isFilled(i)} angle={angle} thickness={thickness} />
                         ))}
                     </div>
                 </div>
