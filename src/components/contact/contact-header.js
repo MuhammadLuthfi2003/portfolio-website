@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../../styles/contact/contact-header-decorator.css';
+import TypewriterText from '../typewriter-text';
 
 class ContactHeader extends React.Component {
     render() {
@@ -8,7 +9,15 @@ class ContactHeader extends React.Component {
             <div className='contact-header'>
                 {/* Left: green label */}
                 <div className='contact-header-left'>
-                    <span className='contact-header-label'>&gt; Contact Me!</span>
+                    <span className='contact-header-label'>
+                        <TypewriterText
+                            className="typewriter-contact"
+                            text="&gt; Contact Me!"
+                            interval={80}
+                            resetOnExit
+                            marker={false}
+                        />
+                    </span>
                 </div>
 
                 {/* Right: green hazard stripes */}

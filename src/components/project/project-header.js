@@ -2,6 +2,8 @@ import React from 'react';
 
 import '../../styles/project/project-header-decorator.css';
 
+import TypewriterText from '../typewriter-text';
+
 // one chevron = two parallelograms (upper arm + lower arm)
 // angle = how far the arms lean, in degrees from vertical
 // (0 = straight vertical bars, ~40 = your current look, higher = flatter/sharper)
@@ -36,7 +38,15 @@ class ProjectHeader extends React.Component {
             <div className='project-header'>
                 {/* Left cell: green label */}
                 <div className='project-header-left'>
-                    <span className='project-header-label'>&gt; Projects</span>
+                    <span className='project-header-label'>
+                        <TypewriterText
+                            className="typewriter-project"
+                            text="&gt; Projects"
+                            interval={80}
+                            resetOnExit
+                            marker={false}
+                        />
+                    </span>
                 </div>
 
                 {/* Right cell: corner brackets + chevron progress */}

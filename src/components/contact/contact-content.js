@@ -9,6 +9,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import arrowIcon from '../../images/icons/About Me Arrow.png';
 
 import TiltCard from '../tilt-card';
+import TypewriterText from '../typewriter-text';
 
 // Add or reorder contacts here, the list renders from this array.
 const contacts = [
@@ -42,7 +43,14 @@ class ContactContent extends React.Component {
                 </div>
 
                 <div className='contact-message'>
-                    <span className='contact-message-text'>Lets Keep<br />In Touch!</span>
+                    <span className='contact-message-text'>
+                        <TypewriterText
+                            className="typewriter-contact"
+                            text="Lets Keep In Touch!"
+                            interval={80}
+                            resetOnExit
+                        />
+                    </span>
                 </div>
 
                 <span className='contact-copyright'>

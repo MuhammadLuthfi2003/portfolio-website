@@ -6,6 +6,7 @@ import { faItchIo, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-ico
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import FloatingPlus from '../floating-plus';
+import TypewriterText from '../typewriter-text';
 
 class HomeDisplay extends React.Component {
     render() {
@@ -15,7 +16,14 @@ class HomeDisplay extends React.Component {
 
                     <div className="hero">
                         <div className="block">
-                            <text className="block-text">Muhammad Luthfi Azzahra Rammadhani</text>
+                            <text className="block-text">
+                                <TypewriterText 
+                                    className="typewriter-name"
+                                    text="Muhammad Luthfi Azzahra Rammadhani"
+                                    interval={80}
+                                    resetOnExit
+                                />
+                            </text>
                         </div>
                         <FloatingPlus className="corner" />
                         <FloatingPlus className="corner-bottom" rotateDirection="ccw" delay={1} />
@@ -26,7 +34,15 @@ class HomeDisplay extends React.Component {
                             <div className="bracket title-1"></div>
                             <div className="bracket title-2"></div>
                             <FloatingPlus className="programmer" rotateDuration={5} />
-                            <text className="title-text">Game Programmer</text>
+                            <text className="title-text">
+                                <TypewriterText
+                                    className="typewriter-title"
+                                    text="Game Programmer"
+                                    interval={80}
+                                    resetOnExit
+                                    marker={false}
+                                />
+                            </text>
                         </div>
 
                         <FloatingPlus className="contact" rotateDirection="ccw" delay={0.5} />

@@ -1,13 +1,23 @@
 import React from 'react';
 import '../../styles/profile/profile-header-decorator.css';
 
+import TypewriterText from '../typewriter-text';
+
 class ProfileHeader extends React.Component {
     render() {
         return (
             <div className="profile-header">
                 {/* Left cell: green label */}
                 <div className="profile-header-left">
-                    <span className="profile-header-label">&gt; Profile</span>
+                    <span className="profile-header-label">
+                        <TypewriterText
+                            className="typewriter-profile"
+                            text="&gt; Profile"
+                            interval={80}
+                            resetOnExit
+                            marker={false}
+                        />
+                    </span>
                 </div>
 
                 {/* Right cell: barcode + plus marker */}

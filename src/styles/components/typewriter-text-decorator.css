@@ -1,0 +1,48 @@
+.typewriter {
+    --green: #91e01a;
+    --marker-color: var(--green);
+    --marker-width: 0.6em;
+
+    white-space: pre-wrap;
+}
+
+/* text that is still waiting: invisible, but reserves its space */
+.typewriter-rest {
+    visibility: hidden;
+}
+
+/* Marker: zero-width anchor so it never pushes text around,
+   the block itself is drawn over the next (hidden) character */
+.typewriter-marker {
+    position: relative;
+    display: inline-block;
+    width: 0;
+}
+
+.typewriter-marker::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.1em;
+    width: var(--marker-width);
+    height: 1.1em;
+    background: var(--marker-color);
+    /* idle: blink */
+    animation: typewriter-blink 1s steps(1) infinite;
+}
+
+/* while characters are appearing: solid, no blinking */
+.typewriter-marker.typing::after {
+    animation: none;
+}
+
+@keyframes typewriter-blink {
+    0%, 50%   { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .typewriter-marker::after {
+        animation: none;
+    }
+}

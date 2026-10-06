@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/experience/experience-header-decorator.css';
+import TypewriterText from '../typewriter-text';
 
 class ExperienceHeader extends React.Component {
     render() {
@@ -10,7 +11,15 @@ class ExperienceHeader extends React.Component {
             <div className="experience-header">
                 {/* Left cell: green label */}
                 <div className="experience-header-left">
-                    <span className="experience-header-label">&gt; Experiences</span>
+                    <span className="experience-header-label">
+                        <TypewriterText
+                            className="typewriter-experience"
+                            text="&gt; Experiences"
+                            interval={80}
+                            resetOnExit
+                            marker={false}
+                        />
+                    </span>
                 </div>
 
                 {/* Right cell: four bracketed markers */}
