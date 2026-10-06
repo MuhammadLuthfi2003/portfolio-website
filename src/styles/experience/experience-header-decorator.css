@@ -67,6 +67,8 @@
 
 /* Inner green-outlined box */
 .experience-marker-box {
+    --turn: 0deg;
+
     position: absolute;
     inset: 0;
     margin: auto;
@@ -74,13 +76,20 @@
     height: 65%;
     border: 2px solid var(--green);
     background: var(--dark);
+    transform: rotate(var(--turn));
+    /* springy hop to the next side */
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Green filled bar, one side per variant */
+/* Green filled bar, always drawn on the right; rotation moves it around */
 .experience-marker-box::after {
     content: "";
     position: absolute;
     background: var(--green);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 22%;
 }
 
 .experience-marker-box.right::after  { top: 0;    bottom: 0; right: 0;  width: 22%; }
