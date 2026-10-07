@@ -4,49 +4,53 @@ import '../../styles/project/project-content-decorator.css';
 import ProjectCard from '../project-card';
 import PressButton from '../press-button';
 
-// import ganyangImage from '../../images/projects/Ganyang Setan Alas.png';
+import ganyangImage from '../../images/projects/Ganyang.png';
+import pindere from '../../images/projects/Pindere.png';
+import rags from '../../images/projects/Rags Of Racs.png';
+import cyr from '../../images/projects/Clean Your Room.png';
+import brainrot from '../../images/projects/Brainrot Claw Machine.png';
 
 // Add new projects here. Every entry in `tools` becomes a filter tag automatically.
 const projects = [
     {
         id: 1,
-        image: null, // ganyangImage
+        image: ganyangImage,
         title: 'Ganyang Setan Alas! The Game',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ipsum sed odio fermentum faucibus ut ac quam. Duis lacus augue,',
+        description: 'Ganyang Setan Alas! The Game! is an action shooter and on-rails shooter adapted from the film Setan Alas! directed by Yusron Fuadi and Anindita Suryarasmi. In this game, players must survive the oncoming zombie attacks by shooting them with various weapons provided across 3 chapters',
         tools: ['Unreal Engine'],
-        link: '#',
+        link: 'https://store.steampowered.com/app/3351730/Ganyang_Setan_Alas_The_Game/',
     },
     {
         id: 2,
-        image: null,
-        title: 'Project Two',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ipsum sed odio fermentum faucibus ut ac quam. Duis lacus augue,',
+        image: rags,
+        title: 'Rags Of Racs',
+        description: 'Rags Of Racs is an action roguelike where players must progress through the arduously long convenience store to get the ultimate cake. Players must collect resources and protect the trolley from incoming enemies and danger within.',
         tools: ['Unity', 'C#'],
-        link: '#',
+        link: 'https://dhelangan.itch.io/ragsofracs',
     },
     {
         id: 3,
-        image: null,
-        title: 'Project Three',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ipsum sed odio fermentum faucibus ut ac quam. Duis lacus augue,',
-        tools: ['Roblox Studio', 'Lua'],
-        link: '#',
+        image: pindere,
+        title: 'Pindere',
+        description: 'Pindere is a Roguelike where players must achieve a certain score on the level by playing pinball with multipliers stacked on it. While playing, players will be disturbed by the girlfriend beside him that wants him so badly to stop playing the addicting pinball.',
+        tools: ['Unity', 'C#'],
+        link: 'https://dhelangan.itch.io/pindere',
     },
         {
         id: 4,
-        image: null,
-        title: 'Project Four',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ipsum sed odio fermentum faucibus ut ac quam. Duis lacus augue,',
-        tools: ['Unreal Engine'],
-        link: '#',
+        image: cyr,
+        title: 'Clean Your Room Before Mom Comes Home',
+        description: 'Clean Your Room Before Mom Comes Home is a fun and engaging game where players must tidy up their room before their mom comes home. Players must rearrange objects, wipe stains and clean up the floors in their room before mom comes home to check on them.',
+        tools: ['Roblox Studio', 'Lua'],
+        link: 'https://www.roblox.com/games/85081695804302/Clean-Your-Room-before-Mom-Comes-Home',
     },
         {
         id: 5,
-        image: null,
-        title: 'Project Five',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ipsum sed odio fermentum faucibus ut ac quam. Duis lacus augue,',
-        tools: ['Unity', 'C#'],
-        link: '#',
+        image: brainrot,
+        title: 'Brainrot Claw Machine',
+        description: 'Brainrot Claw Machine is an incremental simulator game where players catch brainrot in the claw machine provided on the map and then put them on display to earn more money. The money generated from brainrots is then used to catch more rarer brainrots on the map, upgrade candy machine which levels up brainrot, or level up their own personal claw machine.',
+        tools: ['Roblox Studio', 'Lua'],
+        link: 'https://www.roblox.com/games/85068532902439/Brainrot-Claw-Machine',
     },
 ];
 
