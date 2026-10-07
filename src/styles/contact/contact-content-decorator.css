@@ -8,7 +8,9 @@
 
     display: grid;
     grid-template-columns: repeat(var(--column), 1fr);
-    grid-template-rows: repeat(var(--row), 1fr);
+    grid-template-rows: repeat(var(--row), minmax(0, 1fr));  /* rows can't grow past the box */
+    flex: 1;                      /* fill the space under the header */
+    min-height: 0;                /* was 28rem */
     width: 100%;
     min-height: 28rem;
     background-color: var(--dark);
