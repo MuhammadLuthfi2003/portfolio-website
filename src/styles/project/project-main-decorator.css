@@ -1,0 +1,30 @@
+.project-display {
+    width: 100%;
+    min-height: 92vh;             /* same as .home-display, but can grow */
+    padding: 4.6vh 0;             /* keeps the home section's top/bottom margins, even when it grows */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-display-container {
+    width: 95%;                   /* same as .home-display-inner */
+    min-height: calc(92vh * 0.9); /* same height as the home box, grows with more entries */
+    display: flex;
+    flex-direction: column;
+    border: 3px solid white;
+}
+
+/* Tablet / mobile: no forced height, just let content flow */
+@media only screen and (max-width: 1000px) {
+    .project-display {
+        min-height: 0;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .project-display-container {
+        min-height: 0;
+    }
+}

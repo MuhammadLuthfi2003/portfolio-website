@@ -1,17 +1,28 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import '../styles/main-decorator.css';
 
-import Interface from '../components/interface';
-import VideoBG from '../components/video';
-import LoadingScreen from '../components/loadingscreen';
+// Components
+import BarcodeSpacer from '../components/barcode-spacer';
+import HomeDisplay from '../components/home/home-display';
+import ProfileDisplay from '../components/profile/profile-display';
+import ExperienceDisplay from '../components/experience/experience-display';
+import ProjectDisplay from '../components/project/project-display';
+import ContactDisplay from '../components/contact/contact-display';
 
 class Home extends React.Component {
     render() {
         return (
-            <div className='container'>
+            <div className='container' id='home'>
                     <div className='content'>
-                        <Interface />
-                        
+                        <HomeDisplay />
+                        <BarcodeSpacer componentId="profile" />
+                        <ProfileDisplay />
+                        <BarcodeSpacer componentId="experience" />
+                        <ExperienceDisplay />
+                        <BarcodeSpacer componentId="project" />
+                        <ProjectDisplay />
+                        <BarcodeSpacer componentId="contact" />
+                        <ContactDisplay />
                     </div>
             </div>
         )

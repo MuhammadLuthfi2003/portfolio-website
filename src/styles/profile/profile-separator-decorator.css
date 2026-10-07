@@ -1,0 +1,115 @@
+.profile-separator {
+    --line: rgba(255, 255, 255, 0.35);
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    /* the one knob: label text AND boxes scale from this */
+    font-size: 1.5rem;
+
+    width: 100%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0 1rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+}
+
+/* Green label */
+.profile-separator-title {
+    flex: 0 0 auto;
+    background: var(--green);
+    color: var(--dark);
+    font-size: 1em;
+    line-height: 1.2;
+    padding: 0.5em 0.75em;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Row of boxes: takes the leftover width and divides it between the boxes */
+.profile-separator-count {
+    flex: 1 1 0;
+    min-width: 0;                 /* lets the row shrink below its content size */
+    height: 2.2em;                /* same height as the label (1.2em + 2 * 0.5em) */
+    display: flex;
+    align-items: stretch;
+    gap: 0.2em;
+}
+
+/* Boxes grow/shrink to fit, but never get bigger than a square */
+.profile-separator-box {
+    flex: 1 1 0;
+    min-width: 3px;
+    max-width: 2.2em;
+    height: 100%;
+    border: 2px solid #fff;
+    background: var(--dark);
+    box-sizing: border-box;
+}
+
+.profile-separator-box.filled {
+    background: #fff;
+}
+
+.profile-separator-box {
+    flex: 1 1 0;
+    min-width: 3px;
+    max-width: 2.2em;
+    height: 100%;
+    border: 2px solid #fff;
+    background: var(--dark);
+    box-sizing: border-box;
+    transition: background-color 0.25s ease-in-out;
+}
+
+/* ---------- Tablet: smaller text, thinner borders ---------- */
+@media only screen and (max-width: 900px) {
+    .profile-separator {
+        font-size: 1.2rem;
+        height: 4rem;
+    }
+
+    .profile-separator-box {
+        border-width: 1px;
+    }
+}
+
+/* ---------- Mobile: title and boxes stay on one row, extra boxes are hidden ---------- */
+@media only screen and (max-width: 600px) {
+    .profile-separator {
+        font-size: 1rem;
+        height: 4rem;
+        flex-wrap: nowrap;          /* keep everything on one row */
+        gap: 0.4em;
+        padding: 0 0.75rem;
+    }
+
+    .profile-separator-title {
+        white-space: nowrap;
+    }
+
+    .profile-separator-count {
+        flex: 1 1 0;
+        min-width: 0;
+        height: 2.2em;
+
+        /* squares are a fixed size, as many as fit are shown, the rest are clipped */
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 2.2em;
+        grid-template-rows: 100%;
+        gap: 0.2em;
+        overflow: hidden;
+    }
+
+    .profile-separator-box {
+        height: 100%;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        border-width: 1px;
+    }
+}

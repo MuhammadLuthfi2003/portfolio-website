@@ -20,15 +20,16 @@
 
 **Technologies Used**
  1. React.js
- 2. React Three Fiber
- 3. React-Three/drei
- 4. Three.js
- 5. FontAwesome
+ 2. FontAwesome
 
 ### Portfolio Website Logs :
  - **First Deployed At :** 21/08/22
- - **Time Taken :** 18 Days
- - **Last Updated At :** 27/10/22
+ - **Time Taken :** 
+ - 18 Days (v2022)
+ - **Last Updated At :** 6/10/26
 
+### Time Taken
+- v2022 = 18 Days
+- v2026 = 9 Days
 ---
 

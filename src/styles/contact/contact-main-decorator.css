@@ -1,0 +1,30 @@
+.contact-display {
+    width: 100%;
+    height: 92vh;                 /* same as .home-display */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;             /* home has no bottom margin */
+}
+
+.contact-display-container {
+    width: 95%;
+    height: 90%;                  /* same as .home-display-inner */
+    display: flex;
+    flex-direction: column;
+    border: 3px solid white;
+}
+
+/* Small screens: the content stacks vertically, so let it grow */
+@media only screen and (max-width: 900px) {
+    .contact-display {
+        height: auto;
+        min-height: 36rem;        /* same as home's small-screen minimum */
+        margin-bottom: 2rem;
+    }
+
+    .contact-display-container {
+        height: auto;
+    }
+}

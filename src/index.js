@@ -8,16 +8,13 @@ import {
 import { createRoot } from 'react-dom/client';
 
 //styles
-import './styles/root-deco.css'
+// import './styles/root-deco.css'
 
 //components
 import Navbar from './components/navbar';
 
 //dirs
 import Home from './dirs/home';
-import About from './dirs/about';
-import Projects from './dirs/projects';
-import Contact from './dirs/contact';
 
 //index.js will be used for routing purposes
 
@@ -32,9 +29,6 @@ class App extends React.Component {
                         <Switch>
                             
                             <Route path='/' element={<Home />}></Route>
-                            <Route path='/about' element={<About />}></Route>
-                            <Route path='/project' element={<Projects />}></Route>
-                            <Route path='/contact' element={<Contact />}></Route>
 
                         </Switch>
                     </div>

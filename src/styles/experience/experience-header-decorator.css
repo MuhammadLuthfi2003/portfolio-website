@@ -1,0 +1,155 @@
+/* ---------- Experience Header ---------- */
+.experience-header {
+    --line: rgba(255, 255, 255, 0.35);
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    width: 100%;
+    height: 8.5rem;
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Left cell (green label), divider on its right edge */
+.experience-header-left {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-right: 1px solid var(--line);
+}
+
+.experience-header-label {
+    width: 100%;
+    padding: 1.75rem 1.5rem;
+    background: var(--green);
+    color: var(--dark);
+    font-size: 2.75rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Right cell: markers spread evenly */
+.experience-header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    min-width: 0;
+}
+
+/* Marker = square with four white corner brackets */
+.experience-marker {
+    --size: 5rem;
+    --bracket: 1.1rem;
+
+    position: relative;
+    flex: 0 1 var(--size);        /* changed: can shrink, never grows past --size */
+    min-width: 0;
+    aspect-ratio: 1 / 1;          /* changed: height follows width, stays square */
+}
+
+.experience-marker-corner {
+    position: absolute;
+    width: var(--bracket);
+    height: var(--bracket);
+    border: 0 solid #fff;
+}
+
+.experience-marker-corner.tl { top: 0;    left: 0;  border-top-width: 2px;    border-left-width: 2px; }
+.experience-marker-corner.tr { top: 0;    right: 0; border-top-width: 2px;    border-right-width: 2px; }
+.experience-marker-corner.bl { bottom: 0; left: 0;  border-bottom-width: 2px; border-left-width: 2px; }
+.experience-marker-corner.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* Inner green-outlined box */
+.experience-marker-box {
+    --turn: 0deg;
+
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 65%;
+    height: 65%;
+    border: 2px solid var(--green);
+    background: var(--dark);
+    transform: rotate(var(--turn));
+    /* springy hop to the next side */
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Green filled bar, always drawn on the right; rotation moves it around */
+.experience-marker-box::after {
+    content: "";
+    position: absolute;
+    background: var(--green);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 22%;
+}
+
+.experience-marker-box.right::after  { top: 0;    bottom: 0; right: 0;  width: 22%; }
+.experience-marker-box.left::after   { top: 0;    bottom: 0; left: 0;   width: 22%; }
+.experience-marker-box.bottom::after { left: 0;   right: 0;  bottom: 0; height: 22%; }
+.experience-marker-box.top::after    { left: 0;   right: 0;  top: 0;    height: 22%; }
+
+/* Small screens: left cell fits its text, right cell takes the rest */
+@media only screen and (max-width: 800px) {
+    .experience-header {
+        height: auto;
+    }
+
+    .experience-header-left {
+        flex: 0 0 auto;          /* was 40%: now as wide as the label needs */
+        padding: 0.75rem;
+    }
+
+    .experience-header-label {
+        width: auto;             /* was 100%: don't stretch to the cell */
+        font-size: 1.2rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .experience-header-right {
+        flex: 1 1 0;             /* fills leftover space, can shrink */
+        gap: 0.5rem;
+        padding: 0 0.75rem;
+        min-width: 0;
+    }
+
+    .experience-marker {
+        --size: 3.25rem;
+        --bracket: 0.6rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .experience-marker {
+        --bracket: 0.5rem;
+    }
+}
+
+/* Very small phones */
+@media only screen and (max-width: 480px) {
+    .experience-header-left {
+        padding: 0.5rem;
+    }
+
+    .experience-header-label {
+        font-size: 1.1rem;
+        padding: 1rem 0.75rem;
+    }
+
+    .experience-header-right {
+        gap: 0.3rem;
+        padding: 0 0.4rem;
+    }
+
+    .experience-marker {
+        --bracket: 0.4rem;
+    }
+}

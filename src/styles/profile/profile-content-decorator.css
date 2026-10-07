@@ -1,0 +1,26 @@
+.profile-content {
+    text-align: left;
+    padding: 1rem;
+}
+
+.profile-content-title {
+    color: #fff;
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+}
+
+.profile-content-text {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+@media only screen and (max-width: 800px) {
+    .profile-content-title {
+        font-size: 1.5rem;
+    }
+
+    .profile-content-text {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,90 @@
+/* ---------- Animation only (always applied) ---------- */
+.press-button {
+    --green: #91e01a;
+    --dark: #1d1d1d;
+    --press-scale: 0.88;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+
+    /* RELEASE: fast spring back, overshoots past 1 then settles */
+    transform: scale(1);
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.9, 0.64, 1),
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+}
+
+/* PRESS: quick, no bounce, just sinks in */
+.press-button.pressed {
+    transform: scale(var(--press-scale));
+    transition:
+        transform 0.12s ease-out,
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+}
+
+/* ---------- Default green look (skipped when `bare`) ---------- */
+.press-button:not(.bare) {
+    gap: 0.75rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--green);
+    color: var(--dark);
+    border: none;
+    text-decoration: none;
+}
+
+.press-button:not(.bare):hover {
+    background-color: var(--dark);
+    color: #fff;
+}
+
+.press-button:not(.bare):focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+}
+
+/* ---------- Inner content ---------- */
+.press-button-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.press-button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: filter 0.3s ease-in-out;
+}
+
+.press-button:not(.bare):hover .press-button-icon {
+    filter: invert(1);
+}
+
+/* ---------- Bare mode: let the host class control text size ---------- */
+.press-button.bare .press-button-text {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.press-button.bare .press-button-text {
+    display: contents;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* ---------- Reduced motion: keep color fades, drop the squish ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .press-button,
+    .press-button.pressed {
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .press-button.pressed {
+        transform: none;
+    }
+}

@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #161518;
+    background-color: #FFFFFF;
     color: #e8e3f1;
     box-shadow: 1px 9px 32px -7px rgba(0,0,0,0.75);
 }
@@ -26,30 +26,76 @@ body {
 .navbar-logo {
     font-size: 1.3rem;
     margin: 1rem;
+    color: #1d1d1d;
+    min-width: 0;
+}
+
+
+.navbar-links {
+    flex-shrink: 0; /* links never get squeezed */
+}
+
+.navbar-links li,
+.navbar-links li .navbar-links-dir,
+.navbar-contact-dir {
+    white-space: nowrap; /* no more "Contact / Me" */
+}
+
+.navbar-spacer {
+    color: #1d1d1d;
 }
 
 .navbar-links ul {
     margin: 0;
     padding: 0;
     display: flex;
-
+     align-items: center; /* add this */
 }
 
 .navbar-links li {
     list-style: none;
+    align-items: center;
+    margin-right: 10px;
 }
 
 .navbar-links li .navbar-links-dir {
     text-decoration: none;
-    color:#e8e3f1;
-    padding: 1rem;
-    display: block;
+    color:#1D1D1D;
+    padding: 0.5rem;
+    /* display: block; */
     transition: all 0.3s ease-in-out;
 }
 
 .navbar-links li .navbar-links-dir:hover {
     background-color: #28272a;
     transition: all 0.3s ease-in-out;
+    color: #FFFFFF;
+}
+
+.navbar-contact {
+    background-color: #90DE1B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem; /* your desired padding */
+}
+
+.navbar-contact:hover {
+    background-color: #bff570;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid black;
+}
+
+.navbar-contact-dir {
+    text-decoration: none;
+    color: #1d1d1d;
+    padding-right: 1rem;
+    font-weight: 500;
+}
+
+.navbar-arrow {
+    width:1rem;
+    height: 1rem;
 }
 
 .toggle-btn {
@@ -72,17 +118,44 @@ body {
     width: 100%;
     background-color: #3d3b40;
     border-radius: 5px;
-
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-@media only screen and (max-width: 600px) {
+/* burger -> X (bars are 3px tall, 21px button, so the outer bars sit 9px from the middle) */
+.toggle-btn.open .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.toggle-btn.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.toggle-btn.open .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media only screen and (max-width: 1200px) {
+    .navbar-logo {
+        font-size: 1rem;
+    }
+
+    .navbar-links li .navbar-links-dir {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.4rem;
+    }
+}
+
+@media only screen and (max-width: 900px) {
     .toggle-btn {
         display: flex;
     }
 
-    .navbar-links {
+    .navbar-logo {
+        margin-right: 4rem;
+    }
+
+    .navbar-spacer {
         display: none;
-        width: 100%;
     }
 
     .navbar {
@@ -90,20 +163,41 @@ body {
         align-items: flex-start;
     }
 
+    /* collapsible menu */
+    .navbar-links {
+        display: grid;
+        grid-template-rows: 0fr;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            grid-template-rows 0.3s ease-in-out,
+            opacity 0.3s ease-in-out,
+            visibility 0.3s;
+    }
+
+    .navbar-links.active {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        visibility: visible;
+        padding-bottom: 0.5rem;
+    }
+
     .navbar-links ul {
         width: 100%;
         flex-direction: column;
+        overflow: hidden;
+        min-height: 0;
     }
 
     .navbar-links li {
         text-align: center;
+        padding: 0.5rem;
+        margin: 0.2rem;
+
     }
 
     .navbar-links li .navbar-links-dir {
         padding: 0.5em 0.5em;
-    }
-
-    .navbar-links.active {
-        display: flex;
     }
 }

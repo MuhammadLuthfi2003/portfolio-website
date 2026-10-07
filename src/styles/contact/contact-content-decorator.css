@@ -1,0 +1,274 @@
+.contact-content {
+    --green: #91e01a;
+    --dark: #1d1d1d;
+    --line: rgba(255, 255, 255, 0.12);
+
+    --column: 17;
+    --row: 8;
+
+    display: grid;
+    grid-template-columns: repeat(var(--column), 1fr);
+    grid-template-rows: repeat(var(--row), minmax(0, 1fr));  /* rows can't grow past the box */
+    flex: 1;                      /* fill the space under the header */
+    min-height: 0;                /* was 28rem */
+    width: 100%;
+    min-height: 28rem;
+    background-color: var(--dark);
+    background-image:
+        linear-gradient(to right,  var(--line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: calc(100% / var(--column)) calc(100% / var(--row));
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    text-align: left;
+    position: relative;
+}
+
+/* Decoration layer: out of flow, so neither grid nor flex layout sees it */
+.contact-decor {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;        /* rotating/floating pluses can never cause sideways scroll */
+    pointer-events: none;    /* clicks pass through to the links */
+}
+
+.contact-plus {
+    position: absolute;
+}
+
+.random-1 {
+    top: 12%;
+    left: 55%;
+}
+
+.random-2 {
+    top: 70%;
+    left: 48%;
+}
+
+.random-3 {
+    top: 40%;
+    left: 90%;
+}
+
+.hide-mobile {
+    top: 82%;
+    left: 8%;
+}
+
+.tilt-card.contact-link-tilt {
+    border-radius: 0.5rem;   /* so the shadow follows the pill's rounded corners */
+
+    --max-tilt: 8deg;
+    --hover-scale: 1.04;
+    --lift: -5px;
+
+    --shadow-shift: 5px;
+    --shadow-drop: 8px;
+    --shadow-blur: 14px;
+    --shadow-opacity: 0.45;
+}
+
+/* ---------- Link pills (left) ---------- */
+.contact-links {
+    grid-column: 3 / span 5;
+    grid-row: 2 / span 5;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.35rem 0.4rem 0.35rem 0.5rem;
+    background: var(--dark);
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-link-icon {
+    font-size: 1.9rem;
+    width: 2rem;
+}
+
+.contact-link-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+/* Green square holding the arrow */
+.contact-link-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: var(--green);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-link-arrow img {
+    width: 1.4rem;
+    height: 1.4rem;
+    transition: filter 0.3s ease-in-out;
+}
+
+.contact-link:hover {
+    background: #fff;
+    color: var(--dark);
+}
+
+.contact-link:hover .contact-link-arrow {
+    background: var(--dark);
+}
+
+.contact-link:hover .contact-link-arrow img {
+    filter: invert(1);   /* arrow stays visible on the dark square */
+}
+
+.contact-link:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+}
+
+/* ---------- Message (right) ---------- */
+.contact-message {
+    grid-column: 12 / span 4;
+    grid-row: 3 / span 2;
+    position: relative;
+    align-self: center;
+    justify-self: start;
+    padding: 1.25rem 1.5rem;
+    --bracket: 2.25rem;
+}
+
+.contact-message-text {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+}
+
+/* Top-right and bottom-left corner brackets */
+.contact-message::before,
+.contact-message::after {
+    content: "";
+    position: absolute;
+    width: var(--bracket);
+    height: var(--bracket);
+    border: 0 solid #fff;
+}
+
+.contact-message::before {
+    top: 0;
+    right: 0;
+    border-top-width: 2px;
+    border-right-width: 2px;
+}
+
+.contact-message::after {
+    bottom: 0;
+    left: 0;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+/* ---------- Footer ---------- */
+.contact-copyright {
+    grid-column: 1 / -1;
+    grid-row: var(--row);
+    align-self: end;
+    justify-self: end;
+    padding: 0 1rem 0.75rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ---------- Small screens ---------- */
+@media only screen and (max-width: 800px) {
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        /*top right bottom left*/
+        padding: 2rem 3rem 1rem 3rem;
+        background-size: 3rem 3rem;
+    }
+
+    .contact-message {
+        order: -1;
+        padding: 1rem 1.25rem;
+    }
+
+    .contact-message-text {
+        font-size: 1.5rem;
+    }
+
+    .contact-links {
+        align-items: stretch;
+    }
+
+    .contact-link-label {
+        flex: 1;
+        font-size: 1.1rem;
+    }
+
+    .contact-copyright {
+        align-self: flex-end;
+        padding: 0;
+        font-size: 0.8rem;
+        text-align: right;
+    }
+
+    .contact-plus.hide-mobile {
+        display: none;
+    }
+
+    .contact-plus {
+        width: 36px;
+        height: 36px;
+    }
+
+    .random-1 {
+        top: 10%;
+        left: 10%;
+    }
+
+    .random-2 {
+        top: 15%;
+        left: 85%;
+    }
+
+    .random-3 {
+        top: 85%;
+        left: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{
+    .random-1 {
+        top: 5%;
+        left: 10%;
+    }
+
+    .random-2 {
+        top: 20%;
+        left: 85%;
+    }
+
+    .random-3 {
+        top: 85%;
+        left: 10%;
+    }
+}

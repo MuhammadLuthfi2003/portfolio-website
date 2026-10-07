@@ -1,0 +1,149 @@
+.education-display {
+    --green: #91e01a;
+    --dark: #1d1d1d;
+
+    width: 100%;
+    background-color: #fff;
+    color: var(--dark);
+}
+
+/* wide cards look much more dramatic when tilted, so go gentler */
+.tilt-card.education-display {
+    --max-tilt: 4deg;
+    --hover-scale: 1.02;
+    --lift: -8px;
+}
+
+
+.education-display-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 3rem 1.5rem 1rem;   /* right padding clears the stripes */
+    text-align: left;
+}
+
+/* Green "#1" tag, top-left */
+.education-order {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: var(--green);
+    padding: 0.15rem 0.5rem;
+    z-index: 1;
+}
+
+.education-order-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Icon */
+.education-icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0.5rem 0;
+}
+
+.education-icon img {
+    width: 5.5rem;
+    height: auto;
+    object-fit: contain;
+}
+
+/* College + major/gpa */
+.education-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.education-college {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.education-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 3rem;
+}
+
+.education-major,
+.education-gpa {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Year on the right */
+.education-year {
+    flex: 0 0 auto;
+    padding-right: 1rem;
+}
+
+.education-year-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Hazard stripes along the right edge */
+.education-stripes {
+    --stripe-shift: calc(20px / cos(30deg));   /* ≈ 23.09px */
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1.75rem;
+    margin-right: 0.5rem;
+    background: repeating-linear-gradient(
+        -30deg,
+        #d6d6d6 0 10px,
+        #fff 10px 20px
+    );
+    background-size: 100% var(--stripe-shift);
+    animation: education-stripes-scroll 1.5s linear infinite;
+}
+
+@keyframes education-stripes-scroll {
+    from { background-position-y: 0; }
+    to   { background-position-y: var(--stripe-shift); }
+}
+
+/* Small screens: smaller label, tighter markers */
+@media only screen and (max-width: 800px) {
+    .education-college {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .education-year-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Stack on small screens */
+@media only screen and (max-width: 600px) {
+    .education-display-container {
+        flex-wrap: wrap;
+    }
+
+    .education-year {
+        flex-basis: 100%;
+        padding-right: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .education-stripes {
+        animation: none;
+    }
+}

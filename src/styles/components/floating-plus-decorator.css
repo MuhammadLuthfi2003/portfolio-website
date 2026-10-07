@@ -1,0 +1,37 @@
+.floating-plus {
+    /* ---- customizable knobs (the props set these) ---- */
+    --plus-size: 52px;
+    --plus-color: #91e01a;
+    --plus-thickness: calc(var(--plus-size) * 0.15);   /* scales with size */
+
+    --float-amplitude: 8px;     /* rise/fall distance */
+    --float-duration: 3s;       /* one up-and-down cycle */
+    --float-delay: 0s;
+    --rotate-duration: 8s;      /* one full 360° turn */
+    --rotate-direction: 1;      /* 1 = clockwise, -1 = counter-clockwise, 0 = none */
+    --rotate-delay: 0s;
+
+    width: var(--plus-size);
+    height: var(--plus-size);
+    background:
+        linear-gradient(var(--plus-color), var(--plus-color)) center / 100% var(--plus-thickness) no-repeat,
+        linear-gradient(var(--plus-color), var(--plus-color)) center / var(--plus-thickness) 100% no-repeat;
+
+    animation:
+        plus-float  var(--float-duration)  ease-in-out var(--float-delay)  infinite,
+        plus-rotate var(--rotate-duration) linear      var(--rotate-delay) infinite;
+}
+
+@keyframes plus-float {
+    0%, 100% { translate: 0 calc(var(--float-amplitude) * -1); }
+    50%      { translate: 0 var(--float-amplitude); }
+}
+
+@keyframes plus-rotate {
+    from { rotate: 0deg; }
+    to   { rotate: calc(360deg * var(--rotate-direction)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-plus { animation: none; }
+}

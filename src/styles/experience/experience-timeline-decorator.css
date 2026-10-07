@@ -1,0 +1,27 @@
+.experience-timeline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.experience-timeline-container {
+    --rail: 3rem;                 /* width of the left column that holds markers */
+    position: relative;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* The vertical timeline line, centered in the rail */
+.experience-timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--rail) / 2);
+    width: 1px;
+    background: rgba(255, 255, 255, 0.5);
+}

@@ -1,0 +1,100 @@
+.project-content {
+    --green: #91e01a;
+    --dark: #1d1d1d;
+    --line: rgba(255, 255, 255, 0.12);
+
+    width: 100%;
+    flex: 1 1 auto;               /* fills the leftover height of the container, so the grid backdrop reaches the bottom */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark);
+    text-align: left;
+}
+
+/* ---------- Filter ---------- */
+.project-filter {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;        /* was 1rem, a bit shorter */
+}
+
+.project-filter-label {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.project-filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.project-filter-tag {
+    padding: 0.35rem 0.75rem;
+    background: var(--dark);
+    color: #fff;
+    border: 1px solid var(--green);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-filter-tag .press-button-text {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.project-filter-tag:hover {
+    background: rgba(145, 224, 26, 0.2);
+}
+
+.project-filter-tag.active {
+    background: var(--green);
+    color: var(--dark);
+}
+
+.project-filter-tag:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ---------- Card grid (with the same grid-paper backdrop as the hero) ---------- */
+.project-grid {
+    flex: 1 1 auto;
+    align-content: start;         /* rows keep their natural height */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;                    /* room between entries */
+    padding: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    background-image:
+        linear-gradient(to right,  var(--line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+    /* no overflow-y, no max-height: the section just gets taller */
+}
+
+.project-empty {
+    grid-column: 1 / -1;
+    padding: 2rem 0;
+    color: #fff;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        padding: 4rem;
+        gap: 3rem;
+    }
+}
