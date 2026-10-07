@@ -1,5 +1,5 @@
 .project-display {
-    width: 100vw;
+    width: 100%;
     min-height: 92vh;             /* same as .home-display, but can grow */
     padding: 4.6vh 0;             /* keeps the home section's top/bottom margins, even when it grows */
     display: flex;
